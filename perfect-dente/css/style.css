@@ -120,3 +120,34 @@ html.lenis {
 #localizacao iframe + div {
     pointer-events: none;
 }
+
+/* ==========================================================================
+   MOBILE-FIRST FINE TUNING (375px - 480px)
+   ========================================================================== */
+
+/* Prevenção Rigorosa de Overflow Horizontal */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    /* Ajustes finos para tipografia muito grande em telas ultra pequenas */
+    .js-headline {
+        font-size: 2.25rem !important; /* text-4xl */
+        line-height: 1.1;
+    }
+    
+    .text-7xl, .text-8xl {
+        font-size: 4rem !important;
+    }
+    
+    /* Garantia de área de toque de 44px (Padrão Apple) */
+    .premium-btn, button, .mobile-link {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
