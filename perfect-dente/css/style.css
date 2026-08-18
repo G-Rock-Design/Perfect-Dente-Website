@@ -1,4 +1,4 @@
-/* ==========================================================================
+ï»¿/* ==========================================================================
    PERFECT DENTE - PREMIUM HERO STYLES
    ========================================================================== */
 
@@ -76,8 +76,8 @@ html.lenis {
 
 @media (max-width: 1023px) {
     .js-parallax-container {
-        mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
-        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
+        mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
         height: 60vh;
         top: 0;
     }
@@ -125,7 +125,7 @@ html.lenis {
    MOBILE-FIRST FINE TUNING (375px - 480px)
    ========================================================================== */
 
-/* Prevenção Rigorosa de Overflow Horizontal */
+/* Prevenï¿½ï¿½o Rigorosa de Overflow Horizontal */
 html, body {
     overflow-x: hidden;
     width: 100%;
@@ -142,7 +142,7 @@ html, body {
         font-size: 4rem !important;
     }
     
-    /* Garantia de área de toque de 44px (Padrão Apple) */
+    /* Garantia de ï¿½rea de toque de 44px (Padrï¿½o Apple) */
     .premium-btn, button, .mobile-link {
         min-height: 48px;
         display: flex;
@@ -150,4 +150,5 @@ html, body {
         justify-content: center;
     }
 }
+
 
