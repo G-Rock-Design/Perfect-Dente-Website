@@ -125,11 +125,27 @@
                             class="text-slate-900 hover:text-teal-600 transition-colors duration-300 py-2 relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-teal-600 after:rounded-full">Contato</a>
                     </nav>
 
-                    <button
+                    <button id="mobile-menu-btn"
                         class="lg:hidden text-slate-900 p-2 border border-slate-200 rounded-full hover:bg-slate-100 transition-colors">
                         <i data-lucide="menu" class="w-5 h-5"></i>
                     </button>
                 </header>
+
+                <!-- Mobile Menu Overlay -->
+                <div id="mobile-menu" class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-[100] flex flex-col justify-center items-center translate-x-full transition-transform duration-500 ease-in-out lg:hidden">
+                    <button id="mobile-menu-close" class="absolute top-8 right-6 p-2 text-white hover:text-teal-400 transition-colors">
+                        <i data-lucide="x" class="w-8 h-8"></i>
+                    </button>
+                    <nav class="flex flex-col items-center gap-8 text-lg font-display font-semibold tracking-widest uppercase text-white">
+                        <a href="#home" class="mobile-link hover:text-teal-400 transition-colors">Início</a>
+                        <a href="#sobre" class="mobile-link hover:text-teal-400 transition-colors">A Clínica</a>
+                        <a href="#resultados" class="mobile-link hover:text-teal-400 transition-colors">Resultados</a>
+                        <a href="#procedimentos" class="mobile-link hover:text-teal-400 transition-colors">Especialidades</a>
+                        <a href="#o-doutor" class="mobile-link hover:text-teal-400 transition-colors">O Doutor</a>
+                        <a href="#ambiente-clinica" class="mobile-link hover:text-teal-400 transition-colors">Ambiente</a>
+                        <a href="#localizacao" class="mobile-link text-teal-500">Contato</a>
+                    </nav>
+                </div>
 
                 <div class="w-full lg:w-3/5 flex flex-col items-start mt-8 lg:mt-0 pointer-events-auto">
 
@@ -179,37 +195,6 @@
 
                 </div>
 
-                <!-- LAYER 4: FLOATING FOREGROUND DETAILS (Right side) -->
-                <div
-                    class="hidden lg:flex flex-col absolute right-0 top-1/2 -translate-y-1/2 gap-24 z-20 pointer-events-auto js-floating-info mix-blend-multiply">
-
-                    <div class="flex items-center gap-5 group cursor-default">
-                        <div
-                            class="w-12 h-[1px] bg-slate-300 transition-all duration-500 group-hover:w-20 group-hover:bg-teal-500">
-                        </div>
-                        <div>
-                            <span
-                                class="block text-[9px] font-mono tracking-[0.2em] text-slate-400 mb-1.5 opacity-70">01</span>
-                            <h4
-                                class="text-[10px] font-bold tracking-[0.2em] text-slate-800 uppercase group-hover:text-teal-700 transition-colors">
-                                Precisão Digital</h4>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-5 group cursor-default">
-                        <div
-                            class="w-12 h-[1px] bg-slate-300 transition-all duration-500 group-hover:w-20 group-hover:bg-teal-500">
-                        </div>
-                        <div>
-                            <span
-                                class="block text-[9px] font-mono tracking-[0.2em] text-slate-400 mb-1.5 opacity-70">02</span>
-                            <h4
-                                class="text-[10px] font-bold tracking-[0.2em] text-slate-800 uppercase group-hover:text-teal-700 transition-colors">
-                                Estética Natural</h4>
-                        </div>
-                    </div>
-
-                </div>
 
             </div>
         </section>

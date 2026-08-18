@@ -194,4 +194,30 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
+    // 6. MOBILE MENU LOGIC
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileMenuBtn && mobileMenuClose && mobileMenu) {
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('translate-x-full');
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                lenis.start(); // Re-enable scroll
+            } else {
+                lenis.stop(); // Disable scroll when menu is open
+            }
+        };
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileMenuClose.addEventListener('click', toggleMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+                // Let Lenis handle the smooth scroll
+            });
+        });
+    }
 });
