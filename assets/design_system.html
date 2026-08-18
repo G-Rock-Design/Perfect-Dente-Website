@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Design System - Premium & Minimalist</title>
+
+    <!-- Fontes (White Medical) -->
+    <link href="../white-medical/assets/css2_19fd9cc6b396.css" rel="stylesheet"/>
+    <link href="../white-medical/assets/css2_86e10c4bcbd4.css" rel="stylesheet"/>
+
+    <!-- CSS Base (White Medical) -->
+    <link rel="stylesheet" href="../white-medical/assets/css/design-system.css"/>
+
+    <!-- Elementor CSS (Clinica Viotto & Mauro Lefrancois) - Referências Solicitadas -->
+    <link href="../clinicaviotto.com.br/assets/2a35f5001c5afeff_custom-frontend.min.css" rel="stylesheet"/>
+    <link href="../clinicaviotto.com.br/assets/cb9e5b3058d1e362_main.min.css" rel="stylesheet"/>
+    <link href="../maurolefrancois.com.br/assets/0a5d398672e25dc7_frontend.min.css" rel="stylesheet"/>
+    <link href="../maurolefrancois.com.br/assets/e0a8db43f7615137_theme.css" rel="stylesheet"/>
+
+    <!-- Tailwind Runtime (White Medical) -->
+    <script src="../white-medical/assets/resource_3fa48481346f.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0f4fa', 100: '#dce5f2', 200: '#b9cce5', 300: '#8baad3', 400: '#5883be',
+                            500: '#3865a3', 600: '#1b3a6b', 700: '#214278', 800: '#1d3b6b', 900: '#1a335a',
+                        },
+                        emerald: {
+                            50: '#fbf8f0', 100: '#f5ecd9', 200: '#ebd4af', 300: '#dfb77d', 400: '#d1984f',
+                            500: '#b98b2a', 600: '#a77321', 700: '#85561d', 800: '#6d451e', 900: '#5a391a',
+                        },
+                        slate: {
+                            50: '#f5f5f5', 100: '#ebebeb', 200: '#cccccc', 300: '#a3a3a3', 400: '#7a7a7a',
+                            500: '#5c5c5c', 600: '#474747', 700: '#333333', 800: '#292929', 900: '#1f1f1f',
+                        },
+                        sky: {
+                            50: '#fdfbfa', 100: '#f8f4f0', 200: '#f0e6dc', 300: '#e5d1be', 400: '#d9ba9b',
+                            500: '#cca078', 600: '#b58557', 700: '#916740', 800: '#755436', 900: '#5e432d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Ícones -->
+    <script src="../white-medical/assets/iconify_654a1ef798a3.js"></script>
+    <script src="../white-medical/assets/lucide_latest_2eebd0ebe8c2.js"></script>
+
+    <!-- Estilos Customizados para Efeitos Exclusivos -->
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .text-gradient {
+            background-image: linear-gradient(to right, #1b3a6b, #b98b2a, #cca078);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .glow-button {
+            position: relative;
+            z-index: 1;
+        }
+        .glow-button::before {
+            content: "";
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(45deg, #1b3a6b, #b98b2a, #cca078);
+            z-index: -1;
+            filter: blur(12px);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: inherit;
+        }
+        .glow-button:hover::before {
+            opacity: 0.8;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 6s ease-in-out infinite 3s;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Tooltip custom */
+        .tooltip-custom .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+            transform: translateY(10px) translateX(-50%);
+        }
+        .tooltip-custom:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0) translateX(-50%);
+        }
+        
+        .ds-section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .ds-section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background: #1b3a6b;
+            transition: width 0.3s ease;
+        }
+        .group:hover .ds-section-title::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen w-full relative overflow-x-hidden antialiased selection:bg-teal-100 selection:text-teal-900">
+
+    <!-- Ambient Background / Glows -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] right-[-10%] w-[600px] lg:w-[900px] h-[600px] lg:h-[900px] bg-sky-100 rounded-full blur-[120px] opacity-60"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[500px] lg:w-[700px] h-[500px] lg:h-[700px] bg-teal-100 rounded-full blur-[120px] opacity-60"></div>
+    </div>
+
+    <!-- Global Grid Overlay -->
+    <div class="fixed inset-0 z-0 pointer-events-none hidden lg:block h-screen opacity-60">
+        <div class="grid-line-v" style="left: 10%"><div class="beam-v" style="animation: beam-v 6s infinite 1s;"></div></div>
+        <div class="grid-line-v" style="left: 30%"></div>
+        <div class="grid-line-v" style="left: 70%"><div class="beam-v" style="animation: beam-v 7s infinite 3s;"></div></div>
+        <div class="grid-line-v" style="left: 90%"></div>
+        <div class="grid-line-h" style="top: 15%"></div>
+        <div class="grid-line-h" style="top: 85%"><div class="beam-h" style="animation: beam-h 8s infinite 2s;"></div></div>
+    </div>
+
+    <!-- FLOATING NAVBAR (Premium & Creative) -->
+    <div class="fixed top-6 left-0 right-0 z-50 flex justify-center w-full px-6 pointer-events-none">
+        <nav class="pointer-events-auto flex items-center justify-between p-2 bg-white/50 backdrop-blur-2xl border border-white/60 shadow-[0_8px_32px_rgba(27,58,107,0.08)] rounded-full w-full max-w-5xl transition-all duration-500 hover:bg-white/70 hover:shadow-[0_8px_32px_rgba(27,58,107,0.12)]">
+            
+            <!-- Logo Section -->
+            <div class="flex items-center bg-white py-1.5 px-3 pr-6 rounded-full shadow-sm border border-slate-100 group cursor-pointer">
+                <img src="./Design%20sem%20nome%20(5).png" alt="Logo" class="h-12 sm:h-14 w-auto object-contain transform group-hover:scale-105 transition-transform duration-500 mr-4">
+                <span class="text-base font-bold tracking-tight text-slate-800 hidden sm:block group-hover:text-teal-600 transition-colors">Design System</span>
+            </div>
+
+            <!-- Links -->
+            <div class="hidden md:flex items-center gap-1 px-4">
+                <a class="px-4 py-2.5 text-[13px] font-semibold text-slate-500 hover:text-teal-600 hover:bg-white rounded-full transition-all duration-300 shadow-sm shadow-transparent hover:shadow-md" href="#typography">Tipografia</a>
+                <a class="px-4 py-2.5 text-[13px] font-semibold text-slate-500 hover:text-teal-600 hover:bg-white rounded-full transition-all duration-300 shadow-sm shadow-transparent hover:shadow-md" href="#colors">Cores</a>
+                <a class="px-4 py-2.5 text-[13px] font-semibold text-slate-500 hover:text-teal-600 hover:bg-white rounded-full transition-all duration-300 shadow-sm shadow-transparent hover:shadow-md" href="#components">Componentes</a>
+                <a class="px-4 py-2.5 text-[13px] font-semibold text-slate-500 hover:text-teal-600 hover:bg-white rounded-full transition-all duration-300 shadow-sm shadow-transparent hover:shadow-md" href="#icons">Ícones</a>
+            </div>
+
+            <!-- Action -->
+            <div class="pl-2">
+                <a class="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider bg-gradient-to-r from-teal-600 to-emerald-500 text-white py-3.5 px-7 rounded-full shadow-lg hover:shadow-[0_0_20px_rgba(185,139,42,0.4)] transition-all duration-300 hover:-translate-y-0.5" href="#">
+                    Download Assets
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- 1. PRIMEIRA DOBRA (HERO) -->
+    <header class="relative z-10 w-full h-screen min-h-[650px] flex flex-col items-center justify-center px-6 lg:px-[10%] pt-28 pb-16 overflow-hidden">
+        <!-- Aura Mask Effect -->
+        <div class="absolute inset-0 z-0 pointer-events-none" style="mask-image: linear-gradient(to bottom, black 40%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);">
+            <div class="absolute inset-0 bg-gradient-to-b from-white/80 to-transparent backdrop-blur-[2px]"></div>
+        </div>
+
+        <div class="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+            
+            <!-- Hero Text -->
+            <div class="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm text-slate-700 text-[10px] font-bold uppercase tracking-widest mb-6 animate-reveal">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
+                    </span>
+                    Core Design System
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-[4.5rem] font-semibold text-slate-900 tracking-tight leading-[1.05] mb-6">
+                    <span class="block animate-reveal delay-100">Beleza em</span>
+                    <span class="block animate-reveal delay-200 text-slate-300">cada detalhe,</span>
+                    <span class="block animate-reveal delay-300 text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-emerald-500 to-sky-500">pura precisão.</span>
+                </h1>
+                
+                <p class="text-base lg:text-lg text-slate-500 font-light leading-relaxed max-w-lg mb-8 animate-reveal delay-300">
+                    Um framework visual imersivo, combinando o minimalismo do branco puro com letterings transparentes vibrantes, glassmorphism e micro-interações fluidas.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center gap-4 lg:gap-6 animate-reveal delay-500">
+                    <a href="#components" class="glow-button group px-8 py-4 bg-slate-900 text-white rounded font-semibold text-xs uppercase tracking-wider shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-3">
+                        Explorar Componentes
+                        <div class="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-colors">
+                            <span class="iconify w-3.5 h-3.5" data-icon="solar:arrow-right-linear"></span>
+                        </div>
+                    </a>
+                    <a href="#typography" class="group px-8 py-4 bg-white text-slate-900 rounded font-semibold text-xs uppercase tracking-wider border border-slate-200 hover:border-teal-200 hover:bg-teal-50 transition-all duration-300 shadow-sm flex items-center gap-2">
+                        Ver Tipografia
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Graphics (Floating Glass Cards) -->
+            <div class="flex-1 relative w-full h-[380px] lg:h-[420px] animate-reveal delay-500">
+                <!-- Decorative Elements -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-tr from-teal-400 to-emerald-300 rounded-full blur-3xl opacity-40 animate-pulse"></div>
+                
+                <!-- Main Glass Card -->
+                <div class="absolute top-4 right-4 lg:right-0 w-[300px] lg:w-[320px] glass-card rounded-xl p-5 animate-float z-20">
+                    <div class="flex items-center justify-between mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-teal-600">
+                                <span class="iconify w-5 h-5" data-icon="solar:chart-square-linear"></span>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-slate-900">Taxa de Conversão</h4>
+                                <span class="text-xs text-slate-500">Últimos 30 dias</span>
+                            </div>
+                        </div>
+                        <span class="text-emerald-500 text-xs font-bold bg-emerald-50 px-2 py-1 rounded">+14%</span>
+                    </div>
+                    <div class="h-20 w-full bg-slate-50 rounded border border-slate-100 flex items-end px-2 gap-2 pb-2">
+                        <div class="w-full bg-teal-100 rounded-t h-[40%] hover:bg-teal-200 transition-colors"></div>
+                        <div class="w-full bg-teal-200 rounded-t h-[60%] hover:bg-teal-300 transition-colors"></div>
+                        <div class="w-full bg-teal-300 rounded-t h-[30%] hover:bg-teal-400 transition-colors"></div>
+                        <div class="w-full bg-teal-400 rounded-t h-[80%] hover:bg-teal-500 transition-colors"></div>
+                        <div class="w-full bg-teal-500 rounded-t h-[100%] hover:bg-teal-600 transition-colors relative group">
+                            <div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">99.9%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Glass Card -->
+                <div class="absolute bottom-4 left-4 lg:left-0 w-[260px] lg:w-[280px] glass-dark rounded-xl p-4 lg:p-5 animate-float-delayed z-30 shadow-2xl">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-slate-700 overflow-hidden border-2 border-slate-600 shrink-0">
+                            <!-- Placeholder avatar -->
+                            <div class="w-full h-full bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center text-white font-bold text-sm">ML</div>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-semibold text-white leading-tight">Dr. Mauro Lefrançois</h4>
+                            <p class="text-[11px] text-slate-400 mt-1">Reabilitação Oral Adesiva</p>
+                            <div class="flex items-center gap-1 mt-2 text-yellow-400">
+                                <span class="iconify w-3 h-3" data-icon="solar:star-bold"></span>
+                                <span class="iconify w-3 h-3" data-icon="solar:star-bold"></span>
+                                <span class="iconify w-3 h-3" data-icon="solar:star-bold"></span>
+                                <span class="iconify w-3 h-3" data-icon="solar:star-bold"></span>
+                                <span class="iconify w-3 h-3" data-icon="solar:star-bold"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tiny floating element -->
+                <div class="absolute top-1/2 -left-2 lg:-left-6 w-14 h-14 glass-card rounded-2xl flex items-center justify-center text-teal-500 animate-float z-10 shadow-lg border border-white">
+                    <span class="iconify w-7 h-7" data-icon="solar:verified-check-linear"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#typography" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 hover:text-teal-600 transition-colors opacity-70 hover:opacity-100">
+            <span class="text-[10px] font-bold uppercase tracking-widest">Scroll</span>
+            <span class="iconify w-5 h-5 animate-bounce" data-icon="solar:arrow-down-linear"></span>
+        </a>
+    </header>
+
+    <!-- 2. TIPOGRAFIA -->
+    <section id="typography" class="relative z-10 w-full bg-white border-t border-slate-100 py-32 px-6 lg:px-[10%]">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="group mb-20 inline-block">
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-2 block">Fundamentos</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight ds-section-title">2. Tipografia</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <!-- Info -->
+                <div class="lg:col-span-4 flex flex-col gap-8">
+                    <div class="bg-slate-50 border border-slate-100 p-8 rounded-sm">
+                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">Font Families</h4>
+                        <div class="mb-4">
+                            <span class="block text-xl font-semibold text-slate-900">Inter / Poppins</span>
+                            <span class="block text-sm text-slate-500">Primary Stack</span>
+                        </div>
+                        <div>
+                            <span class="block text-xl font-mono text-slate-900">JetBrains Mono</span>
+                            <span class="block text-sm text-slate-500">Monospace</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-50 border border-slate-100 p-8 rounded-sm">
+                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">Loading Strategy</h4>
+                        <ul class="space-y-3 text-sm text-slate-600">
+                            <li class="flex items-center gap-2"><span class="iconify text-teal-500" data-icon="solar:check-circle-linear"></span> Google Fonts CDN</li>
+                            <li class="flex items-center gap-2"><span class="iconify text-teal-500" data-icon="solar:check-circle-linear"></span> Weights: 300, 400, 500, 600, 700</li>
+                            <li class="flex items-center gap-2"><span class="iconify text-teal-500" data-icon="solar:check-circle-linear"></span> Display: swap</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Scale -->
+                <div class="lg:col-span-8 flex flex-col gap-12">
+                    <!-- H1 -->
+                    <div class="flex flex-col md:flex-row md:items-baseline gap-6 pb-8 border-b border-slate-100 group">
+                        <div class="w-32 text-xs font-mono text-slate-400 group-hover:text-teal-600 transition-colors">
+                            <span class="block text-slate-900 font-bold">h1</span>
+                            font-size: 5.5rem<br>font-weight: 600<br>line-height: 1.05<br>letter-spacing: -0.02em
+                        </div>
+                        <h1 class="text-[5.5rem] font-semibold tracking-tighter leading-[1.05] text-slate-900 truncate">Heading 1</h1>
+                    </div>
+                    <!-- H2 -->
+                    <div class="flex flex-col md:flex-row md:items-baseline gap-6 pb-8 border-b border-slate-100 group">
+                        <div class="w-32 text-xs font-mono text-slate-400 group-hover:text-teal-600 transition-colors">
+                            <span class="block text-slate-900 font-bold">h2</span>
+                            font-size: 4rem<br>font-weight: 600<br>line-height: 1.1<br>letter-spacing: -0.01em
+                        </div>
+                        <h2 class="text-6xl font-semibold tracking-tight leading-[1.1] text-slate-900 truncate">Heading 2</h2>
+                    </div>
+                    <!-- H3 -->
+                    <div class="flex flex-col md:flex-row md:items-baseline gap-6 pb-8 border-b border-slate-100 group">
+                        <div class="w-32 text-xs font-mono text-slate-400 group-hover:text-teal-600 transition-colors">
+                            <span class="block text-slate-900 font-bold">h3</span>
+                            font-size: 2.5rem<br>font-weight: 600<br>line-height: 1.2
+                        </div>
+                        <h3 class="text-4xl font-semibold leading-[1.2] text-slate-900 truncate">Heading 3</h3>
+                    </div>
+                    <!-- H4-H6 inline -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-100">
+                        <div>
+                            <span class="text-xs font-mono text-slate-400 mb-2 block">h4 / 1.5rem / 600</span>
+                            <h4 class="text-2xl font-semibold text-slate-900">Heading 4</h4>
+                        </div>
+                        <div>
+                            <span class="text-xs font-mono text-slate-400 mb-2 block">h5 / 1.25rem / 600</span>
+                            <h5 class="text-xl font-semibold text-slate-900">Heading 5</h5>
+                        </div>
+                        <div>
+                            <span class="text-xs font-mono text-slate-400 mb-2 block">h6 / 1rem / 600</span>
+                            <h6 class="text-base font-semibold text-slate-900">Heading 6</h6>
+                        </div>
+                    </div>
+                    
+                    <!-- Body -->
+                    <div class="flex flex-col md:flex-row md:items-start gap-6 pb-8 border-b border-slate-100 group">
+                        <div class="w-32 text-xs font-mono text-slate-400 group-hover:text-teal-600 transition-colors">
+                            <span class="block text-slate-900 font-bold">body-lg</span>
+                            font-size: 1.125rem<br>font-weight: 300/400<br>line-height: 1.6
+                        </div>
+                        <p class="text-lg text-slate-500 font-light max-w-2xl">O design system é a base de toda a interface, garantindo consistência, acessibilidade e beleza. O texto grande é ideal para introduções e destaques de parágrafos fluidos.</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-6 pb-8 border-b border-slate-100 group">
+                        <div class="w-32 text-xs font-mono text-slate-400 group-hover:text-teal-600 transition-colors">
+                            <span class="block text-slate-900 font-bold">body / body-sm</span>
+                        </div>
+                        <div class="max-w-2xl">
+                            <p class="text-base text-slate-600 font-normal mb-4">Corpo de texto padrão, usado para a maior parte do conteúdo descritivo, artigos e blocos de texto contínuos.</p>
+                            <p class="text-sm text-slate-500 font-normal">Corpo de texto pequeno, ideal para descrições secundárias, metadados e informações menos prioritárias.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-start gap-6 group">
+                        <div class="w-32 text-xs font-mono text-slate-400 group-hover:text-teal-600 transition-colors">
+                            <span class="block text-slate-900 font-bold">captions</span>
+                            font-size: 0.75rem<br>font-weight: 700<br>uppercase<br>letter-spacing: 0.05em
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Rótulos, Badges e Auxiliares</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SISTEMA DE CORES -->
+    <section id="colors" class="relative z-10 w-full bg-slate-50 border-t border-slate-200 py-32 px-6 lg:px-[10%]">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="group mb-20 inline-block">
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-2 block">Fundamentos</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight ds-section-title">3. Sistema de Cores</h2>
+            </div>
+
+            <!-- Palette Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Primary -->
+                <div class="bg-white p-6 rounded-sm border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-32 w-full bg-teal-600 rounded mb-4 relative overflow-hidden flex items-end p-4">
+                        <div class="absolute inset-0 bg-teal-600 group-hover:scale-105 transition-transform"></div>
+                        <span class="relative z-10 text-white font-mono text-sm opacity-0 group-hover:opacity-100 transition-opacity">#1b3a6b</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Primary</h3>
+                    <p class="text-xs text-slate-500 mb-4">Teal / Brand</p>
+                    <div class="flex gap-1 h-6">
+                        <div class="flex-1 bg-teal-50 rounded-sm" title="50"></div>
+                        <div class="flex-1 bg-teal-200 rounded-sm" title="200"></div>
+                        <div class="flex-1 bg-teal-400 rounded-sm" title="400"></div>
+                        <div class="flex-1 bg-teal-600 rounded-sm" title="600"></div>
+                        <div class="flex-1 bg-teal-800 rounded-sm" title="800"></div>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-4 uppercase tracking-wider">Uso Contextual: Botões principais, links ativos, ícones de destaque.</p>
+                </div>
+
+                <!-- Secondary -->
+                <div class="bg-white p-6 rounded-sm border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-32 w-full bg-emerald-500 rounded mb-4 relative overflow-hidden flex items-end p-4">
+                        <div class="absolute inset-0 bg-emerald-500 group-hover:scale-105 transition-transform"></div>
+                        <span class="relative z-10 text-white font-mono text-sm opacity-0 group-hover:opacity-100 transition-opacity">#b98b2a</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Secondary</h3>
+                    <p class="text-xs text-slate-500 mb-4">Emerald / Success</p>
+                    <div class="flex gap-1 h-6">
+                        <div class="flex-1 bg-emerald-50 rounded-sm"></div>
+                        <div class="flex-1 bg-emerald-200 rounded-sm"></div>
+                        <div class="flex-1 bg-emerald-400 rounded-sm"></div>
+                        <div class="flex-1 bg-emerald-500 rounded-sm"></div>
+                        <div class="flex-1 bg-emerald-800 rounded-sm"></div>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-4 uppercase tracking-wider">Uso Contextual: Gráficos de sucesso, tags positivas, gradients mistos.</p>
+                </div>
+
+                <!-- Accent -->
+                <div class="bg-white p-6 rounded-sm border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-32 w-full bg-sky-500 rounded mb-4 relative overflow-hidden flex items-end p-4">
+                        <div class="absolute inset-0 bg-sky-500 group-hover:scale-105 transition-transform"></div>
+                        <span class="relative z-10 text-white font-mono text-sm opacity-0 group-hover:opacity-100 transition-opacity">#cca078</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Accent</h3>
+                    <p class="text-xs text-slate-500 mb-4">Sky / Informative</p>
+                    <div class="flex gap-1 h-6">
+                        <div class="flex-1 bg-sky-50 rounded-sm"></div>
+                        <div class="flex-1 bg-sky-200 rounded-sm"></div>
+                        <div class="flex-1 bg-sky-400 rounded-sm"></div>
+                        <div class="flex-1 bg-sky-500 rounded-sm"></div>
+                        <div class="flex-1 bg-sky-800 rounded-sm"></div>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-4 uppercase tracking-wider">Uso Contextual: Tooltips, banners informativos, highlights decorativos.</p>
+                </div>
+
+                <!-- Neutral -->
+                <div class="bg-white p-6 rounded-sm border border-slate-200 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="h-32 w-full bg-slate-900 rounded mb-4 relative overflow-hidden flex items-end p-4">
+                        <div class="absolute inset-0 bg-slate-900 group-hover:scale-105 transition-transform"></div>
+                        <span class="relative z-10 text-slate-300 font-mono text-sm opacity-0 group-hover:opacity-100 transition-opacity">#1f1f1f</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-slate-900 mb-1">Neutral</h3>
+                    <p class="text-xs text-slate-500 mb-4">Slate / Typography</p>
+                    <div class="flex gap-1 h-6">
+                        <div class="flex-1 bg-slate-100 border border-slate-200 rounded-sm"></div>
+                        <div class="flex-1 bg-slate-300 rounded-sm"></div>
+                        <div class="flex-1 bg-slate-500 rounded-sm"></div>
+                        <div class="flex-1 bg-slate-700 rounded-sm"></div>
+                        <div class="flex-1 bg-slate-900 rounded-sm"></div>
+                    </div>
+                    <p class="text-[10px] text-slate-400 mt-4 uppercase tracking-wider">Uso Contextual: Títulos, textos corpo, bordas (slate-200), backgrounds.</p>
+                </div>
+            </div>
+
+            <!-- Gradients & Opacity -->
+            <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Gradients -->
+                <div class="bg-white p-8 border border-slate-200 rounded-sm">
+                    <h4 class="text-sm font-semibold mb-6">Participação em Gradients</h4>
+                    <div class="h-24 w-full bg-gradient-to-r from-teal-600 via-emerald-500 to-sky-400 rounded mb-4"></div>
+                    <p class="text-xs text-slate-500">Usado predominantemente em textos de título (text-transparent bg-clip-text) e barras de progresso para denotar tecnologia e fluidez.</p>
+                </div>
+                <!-- Opacity -->
+                <div class="bg-white p-8 border border-slate-200 rounded-sm">
+                    <h4 class="text-sm font-semibold mb-6">Variantes de Opacidade (Glassmorphism)</h4>
+                    <div class="relative h-24 w-full bg-slate-900 rounded mb-4 flex items-center justify-center overflow-hidden">
+                        <!-- BG pattern -->
+                        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 10px 10px;"></div>
+                        <!-- Glass elements -->
+                        <div class="w-2/3 h-12 bg-white/10 backdrop-blur-md border border-white/20 rounded flex items-center justify-center text-white text-xs font-mono shadow-xl relative z-10">
+                            bg-white/10 + backdrop-blur-md
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500">Crucial para modais, headers fixos e cards flutuantes. Promove hierarquia visual sem bloquear o conteúdo de fundo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. UI COMPONENTS -->
+    <section id="components" class="relative z-10 w-full bg-white border-t border-slate-100 py-32 px-6 lg:px-[10%]">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="group mb-20 inline-block">
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-2 block">Biblioteca</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight ds-section-title">4. UI Components</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Coluna 1 -->
+                <div class="lg:col-span-6 space-y-12">
+                    
+                    <!-- Buttons -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-sm">
+                        <h4 class="text-sm font-semibold mb-6 border-b border-slate-200 pb-4">Buttons & Actions</h4>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <button class="bg-slate-900 text-white px-6 py-3 rounded text-xs font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors shadow-md">Solid Primary</button>
+                            <button class="bg-teal-600 text-white px-6 py-3 rounded text-xs font-bold uppercase tracking-wider hover:bg-teal-700 transition-colors shadow-md">Solid Accent</button>
+                            <button class="bg-white text-slate-900 border border-slate-200 px-6 py-3 rounded text-xs font-bold uppercase tracking-wider hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm">Outline</button>
+                            <button class="text-teal-600 px-4 py-2 text-xs font-bold uppercase tracking-wider hover:bg-teal-50 rounded transition-colors">Ghost</button>
+                        </div>
+                        <div class="mt-6">
+                            <button class="glow-button px-6 py-3 bg-slate-900 text-white rounded text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+                                Hover for Glow <span class="iconify w-4 h-4" data-icon="solar:magic-stick-3-linear"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Inputs -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-sm">
+                        <h4 class="text-sm font-semibold mb-6 border-b border-slate-200 pb-4">Inputs & Forms</h4>
+                        <div class="space-y-6 max-w-md">
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-bold text-slate-700 uppercase tracking-wide">Nome Completo</label>
+                                <input type="text" placeholder="Ex: Dr. Mauro Lefrançois" class="w-full px-4 py-3 bg-white border border-slate-200 rounded text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all shadow-sm">
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <label class="text-xs font-bold text-slate-700 uppercase tracking-wide">Especialidade</label>
+                                <div class="relative">
+                                    <select class="w-full px-4 py-3 bg-white border border-slate-200 rounded text-sm text-slate-900 appearance-none focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 transition-all shadow-sm cursor-pointer">
+                                        <option>Reabilitação Oral Adesiva</option>
+                                        <option>Implantodontia</option>
+                                        <option>Ortodontia</option>
+                                    </select>
+                                    <span class="iconify w-5 h-5 absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" data-icon="solar:alt-arrow-down-linear"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Badges & Tooltips -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-sm">
+                        <h4 class="text-sm font-semibold mb-6 border-b border-slate-200 pb-4">Badges & Tooltips</h4>
+                        <div class="flex flex-wrap gap-6 items-center">
+                            <!-- Badges -->
+                            <div class="flex items-center gap-3">
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-widest">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Sucesso
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-50 border border-rose-100 text-rose-700 text-[10px] font-bold uppercase tracking-widest">
+                                    <span class="relative flex h-1.5 w-1.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span><span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-rose-500"></span></span> Alerta
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-sky-50 border border-sky-100 text-sky-700 text-[10px] font-bold uppercase tracking-widest">
+                                    Info
+                                </span>
+                            </div>
+                            
+                            <!-- Tooltip -->
+                            <div class="relative tooltip-custom mt-4 sm:mt-0">
+                                <button class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-300 transition-colors">
+                                    <span class="iconify w-4 h-4" data-icon="solar:info-circle-linear"></span>
+                                </button>
+                                <div class="tooltip-text absolute bottom-full left-1/2 mb-2 w-max px-3 py-1.5 bg-slate-900 text-white text-xs rounded shadow-lg">
+                                    Informação detalhada aqui
+                                    <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Coluna 2 -->
+                <div class="lg:col-span-6 space-y-12">
+                    
+                    <!-- Cards -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-sm">
+                        <h4 class="text-sm font-semibold mb-6 border-b border-slate-200 pb-4">Cards & Containers</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            
+                            <!-- Stat Card -->
+                            <div class="bg-white border border-slate-200 rounded p-6 shadow-sm hover:shadow-lg hover:border-teal-200 transition-all duration-300 group cursor-default relative overflow-hidden">
+                                <div class="absolute -inset-4 bg-gradient-to-br from-teal-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl"></div>
+                                <div class="relative z-10">
+                                    <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center text-teal-600 mb-4">
+                                        <span class="iconify w-5 h-5" data-icon="solar:graph-up-linear"></span>
+                                    </div>
+                                    <h5 class="text-3xl font-semibold text-slate-900 mb-1 group-hover:text-teal-600 transition-colors">99.9%</h5>
+                                    <div class="h-0.5 w-8 bg-slate-200 mb-2 group-hover:w-full group-hover:bg-teal-500 transition-all duration-500"></div>
+                                    <p class="text-xs text-slate-500">Precisão diagnóstica com alta tecnologia</p>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Card -->
+                            <div class="bg-white border border-slate-200 rounded p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                                <div>
+                                    <h5 class="text-lg font-semibold text-slate-900 mb-2">Prontuário Digital</h5>
+                                    <p class="text-xs text-slate-500 leading-relaxed mb-6">Acesso instantâneo e seguro a todos os seus exames e histórico.</p>
+                                </div>
+                                <a href="#" class="text-xs font-bold text-teal-600 uppercase tracking-wide hover:text-teal-800 flex items-center gap-1 group/link">
+                                    Acessar Portal <span class="iconify w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" data-icon="solar:arrow-right-linear"></span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Modal Simulation -->
+                    <div class="bg-slate-200 border border-slate-300 p-8 rounded-sm relative overflow-hidden flex items-center justify-center min-h-[300px]">
+                        <h4 class="absolute top-8 left-8 text-sm font-semibold text-slate-500 border-b border-slate-300 pb-2 w-[calc(100%-4rem)]">Modal & Dialogs</h4>
+                        
+                        <!-- Modal Overlay -->
+                        <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm z-10 mt-20"></div>
+                        
+                        <!-- Modal Box -->
+                        <div class="relative z-20 bg-white w-full max-w-sm rounded-lg shadow-2xl p-6 mt-20 animate-reveal">
+                            <button class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 transition-colors">
+                                <span class="iconify w-5 h-5" data-icon="solar:close-circle-linear"></span>
+                            </button>
+                            <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-full flex items-center justify-center mb-4">
+                                <span class="iconify w-6 h-6" data-icon="solar:calendar-add-linear"></span>
+                            </div>
+                            <h3 class="text-lg font-semibold text-slate-900 mb-2">Agendar Consulta</h3>
+                            <p class="text-sm text-slate-500 mb-6">Escolha o melhor horário para seu atendimento especializado.</p>
+                            <div class="flex gap-3">
+                                <button class="flex-1 px-4 py-2 bg-slate-100 text-slate-700 rounded text-xs font-bold uppercase hover:bg-slate-200 transition-colors">Cancelar</button>
+                                <button class="flex-1 px-4 py-2 bg-teal-600 text-white rounded text-xs font-bold uppercase hover:bg-teal-700 transition-colors shadow-md">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ÍCONES -->
+    <section id="icons" class="relative z-10 w-full bg-slate-50 border-t border-slate-200 py-32 px-6 lg:px-[10%]">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="group mb-12 inline-block">
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-widest mb-2 block">Linguagem Visual</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight ds-section-title">5. Ícones (Solar & Lucide)</h2>
+            </div>
+            <p class="text-slate-500 mb-12 max-w-2xl">Utilizamos uma família de ícones linear e consistente. Linhas finas, pontas arredondadas e formas precisas que combinam com nossa tipografia e layout limpo.</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6">
+                <!-- Icon blocks -->
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:stethoscope-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Medical</span>
+                </div>
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:test-tube-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Lab</span>
+                </div>
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:document-medicine-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Record</span>
+                </div>
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:calendar-add-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Schedule</span>
+                </div>
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:shield-check-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Security</span>
+                </div>
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:heart-pulse-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Health</span>
+                </div>
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:user-check-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Profile</span>
+                </div>
+                <div class="bg-white aspect-square rounded border border-slate-200 flex flex-col items-center justify-center gap-3 hover:border-teal-400 hover:text-teal-600 text-slate-600 transition-colors cursor-pointer group shadow-sm hover:shadow-md">
+                    <span class="iconify w-8 h-8 group-hover:scale-110 transition-transform" data-icon="solar:magic-stick-3-linear"></span>
+                    <span class="text-[9px] font-mono text-slate-400">Magic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. ANIMAÇÕES -->
+    <section class="relative z-10 w-full bg-slate-900 border-t border-slate-800 py-32 px-6 lg:px-[10%] overflow-hidden">
+        
+        <!-- Dark ambient background -->
+        <div class="absolute inset-0 z-0 opacity-30">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-teal-600 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-sky-600 rounded-full blur-[100px] animate-pulse" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[1600px] mx-auto text-white">
+            <div class="group mb-20 inline-block">
+                <span class="text-xs font-bold text-teal-400 uppercase tracking-widest mb-2 block">Motion Design</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold tracking-tight ds-section-title after:bg-teal-400">6. Animações</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Reveal -->
+                <div class="bg-slate-800/50 backdrop-blur border border-slate-700 p-8 rounded-sm flex flex-col items-center justify-center h-64">
+                    <h3 class="text-sm font-semibold mb-8 text-slate-300">Scroll Reveal</h3>
+                    <div class="w-full overflow-hidden text-center">
+                        <span class="block text-2xl font-bold animate-reveal" style="animation-iteration-count: infinite; animation-duration: 3s;">Surgimento</span>
+                        <span class="block text-slate-400 mt-2 text-sm animate-reveal delay-200" style="animation-iteration-count: infinite; animation-duration: 3s;">Suave e elegante.</span>
+                    </div>
+                </div>
+
+                <!-- Marquee -->
+                <div class="bg-slate-800/50 backdrop-blur border border-slate-700 p-8 rounded-sm flex flex-col items-center justify-center h-64 overflow-hidden mask-linear-fade">
+                    <h3 class="text-sm font-semibold mb-8 text-slate-300">Marquee Infinito</h3>
+                    <div class="flex gap-8 items-center w-max animate-marquee text-slate-400 font-bold text-xl">
+                        <span>INOVAÇÃO</span>
+                        <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                        <span>TECNOLOGIA</span>
+                        <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                        <span>PRECISÃO</span>
+                        <span class="w-2 h-2 rounded-full bg-teal-500"></span>
+                        <span>CUIDADO</span>
+                    </div>
+                </div>
+
+                <!-- Pulse & Ping -->
+                <div class="bg-slate-800/50 backdrop-blur border border-slate-700 p-8 rounded-sm flex flex-col items-center justify-center h-64 gap-8">
+                    <h3 class="text-sm font-semibold text-slate-300">Atenção (Ping & Pulse)</h3>
+                    <div class="flex items-center gap-12">
+                        <!-- Ping -->
+                        <span class="relative flex h-6 w-6">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-6 w-6 bg-rose-500"></span>
+                        </span>
+                        <!-- Pulse -->
+                        <div class="w-16 h-16 bg-sky-500/20 rounded-full flex items-center justify-center animate-pulse">
+                            <div class="w-8 h-8 bg-sky-500 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mockup -->
+    <footer class="w-full bg-slate-950 py-12 text-center border-t border-slate-800">
+        <p class="text-xs text-slate-500 font-mono">© 2026 Premium Design System. Focado no lettering transparente branco.</p>
+    </footer>
+    
+    <!-- JS Interactions -->
+    <script src="../white-medical/assets/js/interactions.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="lenis lenis-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Dente - Odontologia e Harmonização Orofacial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Utilizing Poppins for Display and Inter for UI, following premium editorial guidelines -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN for agility in matching the DS) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        teal: {
+                            50: '#f0f4fa', 100: '#dce5f2', 200: '#b9cce5', 300: '#8baad3', 400: '#5883be',
+                            500: '#3865a3', 600: '#1b3a6b', 700: '#214278', 800: '#1d3b6b', 900: '#1a335a',
+                        },
+                        emerald: {
+                            50: '#fbf8f0', 100: '#f5ecd9', 200: '#ebd4af', 300: '#dfb77d', 400: '#d1984f',
+                            500: '#b98b2a', 600: '#a77321', 700: '#85561d', 800: '#6d451e', 900: '#5a391a',
+                        },
+                        slate: {
+                            50: '#fcfcfc', 100: '#f5f5f5', 200: '#e5e5e5', 300: '#d4d4d4', 400: '#a3a3a3',
+                            500: '#737373', 600: '#525252', 700: '#404040', 800: '#262626', 900: '#171717',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Premium Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body id="home" class="bg-slate-50 text-slate-900 overflow-x-hidden selection:bg-teal-100 selection:text-teal-900 font-sans">
+
+    <!-- LAYER 0: NOISE / GRAIN ATMOSPHERE -->
+    <!-- Gives physical texture to the experience -->
+    <div
+        class="fixed inset-0 pointer-events-none z-0 mix-blend-multiply opacity-[0.04] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=')]">
+    </div>
+
+    <!-- MAIN SCROLL CONTAINER -->
+    <!-- Height 250vh allows for continuous scroll driven animations -->
+    <main class="relative w-full h-[250vh]">
+
+        <!-- LAYER 1: FLOATING ATMOSPHERE GLOWS -->
+        <div class="fixed inset-0 pointer-events-none z-0">
+            <div
+                class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-slate-300 rounded-full blur-[120px] opacity-20 js-glow-1">
+            </div>
+            <div
+                class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-teal-100 rounded-full blur-[120px] opacity-30 js-glow-2">
+            </div>
+        </div>
+
+        <!-- LAYER 2: PARALLAX IMAGE -->
+        <!-- Fixed positioning to serve as the background that transforms over scroll -->
+        <div class="fixed top-0 right-0 w-full lg:w-[55%] h-screen overflow-hidden z-0 js-parallax-container opacity-0">
+            <div class="absolute inset-0 bg-slate-100 js-parallax-image-wrapper transform scale-110">
+                <!-- Using the provided WhatsApp image. object-position adjusted for typical facial alignment in right-aligned compositions -->
+                <img src="../assets/WhatsApp_Image_2026-08-13_at_15.12.07.jpeg_202608171751.jpeg"
+                    alt="Perfect Dente - Tratamento Premium" class="w-full h-full object-cover js-image opacity-0"
+                    style="object-position: 70% 30%;">
+
+                <!-- Atmosphere color tint / Depth layers -->
+                <div class="absolute inset-0 mix-blend-multiply bg-teal-900/5"></div>
+            </div>
+            <!-- Vignette / Overlays to blend smoothly with background -->
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/50 to-transparent w-full lg:w-1/2 left-0 z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent h-1/4 bottom-0 z-10 pointer-events-none mt-auto">
+            </div>
+        </div>
+
+        <!-- LAYER 3: HERO CONTENT SECTION -->
+        <section
+            class="fixed top-0 left-0 w-full h-screen flex flex-col justify-center px-6 md:px-12 lg:px-[10%] pt-24 pb-12 pointer-events-none z-10">
+
+            <div class="max-w-7xl w-full mx-auto flex flex-col justify-center relative h-full">
+
+                <!-- HEADER / MENU -->
+                <header
+                    class="absolute -top-24 left-0 w-full flex items-center justify-between pt-8 pb-6 js-header-fade pointer-events-auto z-50">
+                    <!-- Logo / Brand -->
+                    <div class="flex items-center gap-4 cursor-pointer group">
+                        <div
+                            class="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center group-hover:border-teal-400 transition-colors duration-500">
+                            <div
+                                class="w-2.5 h-2.5 rounded-full bg-teal-600 group-hover:bg-teal-500 transition-colors duration-500">
+                            </div>
+                        </div>
+                        <div
+                            class="text-base font-display font-semibold tracking-[0.15em] uppercase text-slate-900 group-hover:text-teal-700 transition-colors duration-500">
+                            Perfect Dente</div>
+                    </div>
+
+                    <!-- Navegação Principal -->
+                    <nav
+                        class="hidden lg:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] uppercase text-slate-400">
+                        <a href="#sobre" class="hover:text-teal-600 transition-colors duration-300 py-2">A Clínica</a>
+                        <a href="#resultados"
+                            class="hover:text-teal-600 transition-colors duration-300 py-2">Resultados</a>
+                        <a href="#procedimentos"
+                            class="hover:text-teal-600 transition-colors duration-300 py-2">Especialidades</a>
+                        <a href="#o-doutor"
+                            class="hover:text-teal-600 transition-colors duration-300 py-2">O Doutor</a>
+                        <a href="#localizacao"
+                            class="text-slate-900 hover:text-teal-600 transition-colors duration-300 py-2 relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-teal-600 after:rounded-full">Contato</a>
+                    </nav>
+
+                    <button
+                        class="lg:hidden text-slate-900 p-2 border border-slate-200 rounded-full hover:bg-slate-100 transition-colors">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </header>
+
+                <div class="w-full lg:w-3/5 flex flex-col items-start mt-8 lg:mt-0 pointer-events-auto">
+
+                    <!-- EYEBROW -->
+                    <div class="js-fade-up flex items-center gap-4 mb-4">
+                        <span class="w-8 h-[1px] bg-teal-600 block"></span>
+                        <span
+                            class="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-teal-700">Odontologia
+                            & Harmonização</span>
+                    </div>
+
+                    <!-- HEADLINE -->
+                    <h1
+                        class="js-headline font-display text-[2.5rem] leading-[1.1] md:text-5xl lg:text-[4rem] lg:leading-[1.1] font-semibold tracking-tighter text-slate-900 mb-5 max-w-3xl">
+                        Sua <span class="text-teal-600">melhor versão</span><br>
+                        começa com um sorriso.
+                    </h1>
+
+                    <!-- SUBHEADLINE -->
+                    <p
+                        class="js-fade-up text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-[420px] mb-8">
+                        A convergência entre precisão clínica, estética natural e um cuidado pensado exclusivamente para
+                        você.
+                    </p>
+
+                    <!-- CTAs (Hierarquia Visual Corrigida) -->
+                    <div class="js-fade-up flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
+                        <!-- CTA Principal Dominante -->
+                        <a href="#"
+                            class="premium-btn primary w-full sm:w-auto group relative overflow-hidden bg-slate-900 text-white px-10 py-5 rounded-sm text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-4 shadow-[0_15px_40px_rgba(31,31,31,0.2)] hover:shadow-[0_15px_40px_rgba(27,58,107,0.3)] hover:-translate-y-1 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <span class="relative z-10 flex items-center gap-3">
+                                Agendar Avaliação
+                                <i data-lucide="arrow-right"
+                                    class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 ease-out"></i>
+                            </span>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            </div>
+                        </a>
+
+                        <!-- CTA Secundário Minimalista -->
+                        <a href="#sobre"
+                            class="w-full sm:w-auto group px-8 py-5 text-slate-500 hover:text-slate-900 rounded-sm text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 flex items-center justify-center gap-2 focus:ring-2 focus:ring-slate-300 focus:outline-none">
+                            Conhecer a Clínica
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- LAYER 4: FLOATING FOREGROUND DETAILS (Right side) -->
+                <div
+                    class="hidden lg:flex flex-col absolute right-0 top-1/2 -translate-y-1/2 gap-24 z-20 pointer-events-auto js-floating-info mix-blend-multiply">
+
+                    <div class="flex items-center gap-5 group cursor-default">
+                        <div
+                            class="w-12 h-[1px] bg-slate-300 transition-all duration-500 group-hover:w-20 group-hover:bg-teal-500">
+                        </div>
+                        <div>
+                            <span
+                                class="block text-[9px] font-mono tracking-[0.2em] text-slate-400 mb-1.5 opacity-70">01</span>
+                            <h4
+                                class="text-[10px] font-bold tracking-[0.2em] text-slate-800 uppercase group-hover:text-teal-700 transition-colors">
+                                Precisão Digital</h4>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-5 group cursor-default">
+                        <div
+                            class="w-12 h-[1px] bg-slate-300 transition-all duration-500 group-hover:w-20 group-hover:bg-teal-500">
+                        </div>
+                        <div>
+                            <span
+                                class="block text-[9px] font-mono tracking-[0.2em] text-slate-400 mb-1.5 opacity-70">02</span>
+                            <h4
+                                class="text-[10px] font-bold tracking-[0.2em] text-slate-800 uppercase group-hover:text-teal-700 transition-colors">
+                                Estética Natural</h4>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SCROLL INDICATOR -->
+        <div class="fixed bottom-12 left-1/2 -translate-x-1/2 z-20 text-center js-scroll-indicator pointer-events-none">
+            <span class="block text-[8px] font-mono tracking-[0.4em] uppercase text-slate-400 mb-4 opacity-70">Descubra
+                a Experiência</span>
+            <div class="w-[1px] h-16 bg-slate-200 mx-auto relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-full h-1/2 bg-teal-500 animate-[scrollLine_2s_ease-in-out_infinite]">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- DOBRA 02: QUEM SOMOS -->
+    <section
+        class="relative w-full min-h-screen bg-slate-50 flex items-center z-20 py-32 px-6 md:px-12 lg:px-[10%] overflow-hidden"
+        id="sobre">
+        
+        <!-- Premium Background Image -->
+        <div class="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden bg-slate-50">
+            <!-- Imagem em cor real e opacidade elevada -->
+            <img src="../assets/agora_gere_uma_da_metade_do_ro_1.jpg" alt="" class="absolute inset-0 w-full h-[120%] -top-[10%] object-cover js-parallax-bg" style="opacity: 0.5; object-position: right center;">
+            <!-- Gradiente horizontal: forte na esquerda para o título, mais translúcido na direita -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/70 to-slate-50/30"></div>
+            <!-- Transição suave do topo e base -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-50 via-transparent to-slate-50 opacity-90"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-16 lg:gap-24 relative z-10">
+
+            <!-- Lado Esquerdo: Título -->
+            <div class="w-full lg:w-1/2 relative z-10">
+                <div class="js-reveal-up flex items-center gap-4 mb-8">
+                    <span class="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-teal-700">Perfect
+                        Dente</span>
+                    <span class="w-12 h-[1px] bg-teal-200 block"></span>
+                </div>
+                <h2
+                    class="js-split-text font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 tracking-tighter leading-[1.1] mb-8">
+                    Precisão no cuidado.<br>
+                    <span class="text-slate-400">Excelência em cada<br>sorriso.</span>
+                </h2>
+            </div>
+
+            <!-- Lado Direito: Texto Institucional -->
+            <div class="w-full lg:w-1/2 relative z-10 lg:pt-16">
+                <div class="pl-0 lg:pl-12 border-l-0 lg:border-l border-slate-200">
+                    <p class="js-reveal-up text-base md:text-lg text-slate-500 font-light leading-relaxed mb-10">
+                        Nós acreditamos que a odontologia de alto padrão vai além da técnica; é sobre proporcionar uma
+                        experiência onde cada detalhe foi cuidadosamente pensado para o seu bem-estar, estética e saúde.
+                    </p>
+
+                    <div class="js-reveal-up grid grid-cols-2 gap-8">
+                        <div>
+                            <span
+                                class="block text-3xl md:text-4xl font-display font-light text-slate-900 mb-2">20+</span>
+                            <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-700 uppercase">Anos de
+                                Experiência</span>
+                        </div>
+                        <div>
+                            <span
+                                class="block text-3xl md:text-4xl font-display font-light text-slate-900 mb-2">100%</span>
+                            <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-700 uppercase">Foco no
+                                Paciente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 03: ANTES E DEPOIS -->
+    <section class="relative w-full min-h-screen flex items-center bg-white z-20 py-32 px-6 md:px-12 lg:px-[10%]"
+        id="resultados">
+        <div class="max-w-7xl w-full mx-auto">
+
+            <div class="text-center mb-20 js-reveal-up">
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mb-4 block">Transformação
+                    Visual</span>
+                <h2 class="font-display text-3xl md:text-5xl font-semibold text-slate-900 tracking-tight">Detalhes que
+                    fazem<br>a diferença.</h2>
+            </div>
+
+            <!-- Container Before/After Interativo -->
+            <div
+                class="js-reveal-up relative w-full aspect-[4/5] md:aspect-[16/9] lg:aspect-[21/9] bg-slate-100 rounded-sm overflow-hidden shadow-[0_20px_50px_rgba(31,31,31,0.08)] js-ba-container cursor-ew-resize group">
+
+                <!-- Imagem DEPOIS (Fundo completo) -->
+                <img src="../assets/WhatsApp Image 2026-08-17 at 17.44.13.jpeg" alt="Resultado Final" class="absolute inset-0 w-full h-full object-cover js-ba-after">
+
+                <div
+                    class="absolute bottom-6 right-6 px-4 py-2 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest text-slate-900 rounded shadow-sm z-0">
+                    DEPOIS</div>
+
+                <!-- Imagem ANTES (Foreground com Clip-Path dinamico via js) -->
+                <div class="absolute inset-0 w-full h-full js-ba-before z-10 border-r border-white/50"
+                    style="clip-path: inset(0 50% 0 0);">
+                    <img src="../assets/WhatsApp Image 2026-08-17 at 17.44.13 (1).jpeg" alt="Antes do Procedimento" class="absolute inset-0 w-full h-full object-cover">
+
+                    <div
+                        class="absolute bottom-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest text-slate-900 rounded shadow-sm">
+                        ANTES</div>
+                </div>
+
+                <!-- Linha Divisória / Handle -->
+                <div
+                    class="absolute top-0 bottom-0 left-1/2 w-[2px] bg-white z-20 -translate-x-1/2 js-ba-handle pointer-events-none shadow-[0_0_15px_rgba(0,0,0,0.2)]">
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl text-teal-700 transition-transform duration-300 group-hover:scale-110">
+                        <i data-lucide="chevrons-left-right" class="w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DOBRA 04: PROCEDIMENTOS -->
+    <section class="relative w-full min-h-screen bg-slate-900 text-white z-20 py-32 px-6 md:px-12 lg:px-[10%]"
+        id="procedimentos">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-8">
+                <div class="js-reveal-up">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-400 mb-4 block">Nossas
+                        Soluções</span>
+                    <h2 class="font-display text-3xl md:text-5xl font-semibold text-white tracking-tight">
+                        Especialidades<br>Clínicas.</h2>
+                </div>
+                <div class="js-reveal-up text-slate-400 text-sm font-light max-w-sm">
+                    Um portfólio completo focado em restabelecer a função, saúde e estética do seu sorriso de forma
+                    integrada e minimamente invasiva.
+                </div>
+            </div>
+
+            <!-- Lista Dinâmica de Procedimentos -->
+            <div class="w-full flex flex-col border-t border-slate-800 js-procedures-list group/list">
+
+                <!-- Item 01 -->
+                <div
+                    class="js-proc-item group relative flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-slate-800 transition-all duration-500 hover:px-0 md:hover:px-8 cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-slate-800/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none">
+                    </div>
+
+                    <div
+                        class="flex items-start md:items-center gap-8 md:gap-16 relative z-10 w-full md:w-auto mb-4 md:mb-0">
+                        <span class="text-[10px] font-mono tracking-widest text-teal-500 shrink-0">01</span>
+                        <div>
+                            <span
+                                class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block mb-2">Reabilitação
+                                Oral</span>
+                            <h3
+                                class="font-display text-2xl md:text-3xl font-light text-white group-hover:text-teal-300 transition-colors">
+                                Odontologia de Precisão</h3>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 flex items-center justify-between w-full md:w-auto gap-8">
+                        <p class="text-xs text-slate-400 max-w-xs font-light">Tratamentos focados em devolver a função
+                            mastigatória e saúde estrutural com materiais de alta tecnologia.</p>
+                        <div
+                            class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 group-hover:bg-teal-500 group-hover:text-white group-hover:border-teal-500 transition-all duration-300 shrink-0">
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:-rotate-45 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 02 -->
+                <div
+                    class="js-proc-item group relative flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-slate-800 transition-all duration-500 hover:px-0 md:hover:px-8 cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-slate-800/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none">
+                    </div>
+
+                    <div
+                        class="flex items-start md:items-center gap-8 md:gap-16 relative z-10 w-full md:w-auto mb-4 md:mb-0">
+                        <span class="text-[10px] font-mono tracking-widest text-teal-500 shrink-0">02</span>
+                        <div>
+                            <span
+                                class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block mb-2">Simetria
+                                Facial</span>
+                            <h3
+                                class="font-display text-2xl md:text-3xl font-light text-white group-hover:text-teal-300 transition-colors">
+                                Harmonização Orofacial</h3>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 flex items-center justify-between w-full md:w-auto gap-8">
+                        <p class="text-xs text-slate-400 max-w-xs font-light">Procedimentos minimamente invasivos para
+                            realçar seus traços naturais com equilíbrio e segurança.</p>
+                        <div
+                            class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 group-hover:bg-teal-500 group-hover:text-white group-hover:border-teal-500 transition-all duration-300 shrink-0">
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:-rotate-45 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 03 -->
+                <div
+                    class="js-proc-item group relative flex flex-col md:flex-row items-start md:items-center justify-between py-10 md:py-12 border-b border-slate-800 transition-all duration-500 hover:px-0 md:hover:px-8 cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-slate-800/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 pointer-events-none">
+                    </div>
+
+                    <div
+                        class="flex items-start md:items-center gap-8 md:gap-16 relative z-10 w-full md:w-auto mb-4 md:mb-0">
+                        <span class="text-[10px] font-mono tracking-widest text-teal-500 shrink-0">03</span>
+                        <div>
+                            <span
+                                class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block mb-2">Design
+                                de Sorriso</span>
+                            <h3
+                                class="font-display text-2xl md:text-3xl font-light text-white group-hover:text-teal-300 transition-colors">
+                                Estética Dental Avançada</h3>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 flex items-center justify-between w-full md:w-auto gap-8">
+                        <p class="text-xs text-slate-400 max-w-xs font-light">Lentes de contato dental, clareamento e
+                            soluções estéticas definitivas para um sorriso iluminado.</p>
+                        <div
+                            class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 group-hover:bg-teal-500 group-hover:text-white group-hover:border-teal-500 transition-all duration-300 shrink-0">
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:-rotate-45 transition-transform duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DOBRA 05: DR. ALESSANDRO VIEIRA -->
+    <section class="relative w-full min-h-screen bg-white z-20 pt-32 pb-0 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="o-doutor">
+        <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+            
+            <!-- Coluna Esquerda: Informações e Tipografia (lg:col-span-5) -->
+            <div class="lg:col-span-5 flex flex-col justify-center relative z-10">
+                <div class="js-reveal-up mb-12">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mb-4 block">Responsável Técnico</span>
+                    <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
+                        Dr. Alessandro<br>Vieira
+                    </h2>
+                </div>
+
+                <!-- 23+ Anos -->
+                <div class="js-reveal-up mb-12 flex items-center gap-6">
+                    <span class="font-display text-7xl md:text-8xl font-light text-teal-600 tracking-tighter leading-none">23+</span>
+                    <div class="flex flex-col justify-center">
+                        <span class="text-xs font-bold tracking-[0.2em] text-slate-900 uppercase">Anos</span>
+                        <span class="text-[10px] font-bold tracking-[0.1em] text-slate-500 uppercase">De Experiência</span>
+                    </div>
+                </div>
+
+                <!-- Especializações e Premiação -->
+                <div class="flex flex-col gap-4 mb-12">
+                    <div class="js-reveal-up flex items-center gap-4 py-3 border-b border-slate-100">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-500 shrink-0"></i>
+                        <span class="text-xs font-bold tracking-widest text-slate-700 uppercase">Especialista em Ortodontia</span>
+                    </div>
+                    <div class="js-reveal-up flex items-center gap-4 py-3 border-b border-slate-100">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-teal-500 shrink-0"></i>
+                        <span class="text-xs font-bold tracking-widest text-slate-700 uppercase">Especialista em Harmonização Orofacial</span>
+                    </div>
+                    <div class="js-reveal-up flex items-start gap-4 py-4 px-5 bg-slate-50 border border-slate-100 rounded-sm mt-4">
+                        <div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center shrink-0">
+                            <i data-lucide="award" class="w-4 h-4 text-teal-600"></i>
+                        </div>
+                        <div>
+                            <span class="block text-lg font-display font-semibold text-slate-900 leading-tight">2X</span>
+                            <span class="block text-[10px] font-bold tracking-widest text-teal-700 uppercase mb-1">Melhor Dentista da Baixada Fluminense</span>
+                            <span class="block text-xs font-light text-slate-500">Eleito por voto popular</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna Direita: Foto e Texto (lg:col-span-7) -->
+            <div class="lg:col-span-7 flex flex-col items-end relative z-0">
+                <div class="relative w-full lg:w-11/12 aspect-[3/4] md:aspect-square lg:aspect-[4/5] rounded-sm overflow-hidden js-reveal-up group">
+                    <img src="../assets/gere_com_o_fundo_branco_3.jpg" alt="Dr. Alessandro Vieira, responsável técnico da Perfect Dente" class="absolute inset-0 w-full h-[130%] -top-[15%] object-cover transition-transform duration-1000 group-hover:scale-105 js-parallax-bg" style="transform-origin: center;">
+                    <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+                    
+                    <!-- Box de Texto Overlay -->
+                    <div class="absolute bottom-0 left-0 w-full md:w-5/6 bg-white/95 backdrop-blur-md p-8 md:p-10 border-t border-r border-slate-100">
+                        <p class="text-sm font-light text-slate-600 leading-relaxed mb-6">
+                            Com mais de 23 anos de experiência, o Dr. Alessandro Vieira construiu sua trajetória na Odontologia pautada em dedicação, profissionalismo e busca constante por inovação. Formado pela Universidade Veiga de Almeida, no Rio de Janeiro, destacou-se como aluno de excelência.
+                        </p>
+                        <p class="text-sm font-light text-slate-600 leading-relaxed">
+                            Apenas um ano após sua formação, iniciou sua própria clínica no Jardim Primavera, em Duque de Caxias, dando início a uma trajetória marcada pela experiência, evolução e cuidado com cada paciente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Tríade e Transição -->
+        <div class="max-w-7xl mx-auto mt-24 lg:mt-32 border-t border-slate-100 pt-16 pb-24 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-8 md:gap-16">
+                <div class="js-reveal-up text-center">
+                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-2">01</span>
+                    <span class="text-xs font-semibold tracking-widest text-slate-900 uppercase">Técnica</span>
+                </div>
+                <div class="js-reveal-up text-center">
+                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-2">02</span>
+                    <span class="text-xs font-semibold tracking-widest text-slate-900 uppercase">Experiência</span>
+                </div>
+                <div class="js-reveal-up text-center">
+                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-2">03</span>
+                    <span class="text-xs font-semibold tracking-widest text-slate-900 uppercase">Cuidado Humano</span>
+                </div>
+            </div>
+
+            <div class="js-reveal-up flex flex-col items-center md:items-end text-center md:text-right">
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4 block">Uma trajetória construída em Duque de Caxias.</span>
+                <a href="#localizacao" class="premium-btn primary inline-flex group relative overflow-hidden bg-slate-900 text-white px-8 py-4 rounded text-[10px] font-bold uppercase tracking-[0.15em] transition-all duration-500 items-center justify-center gap-3 hover:-translate-y-0.5">
+                    <span class="relative z-10 flex items-center gap-3">
+                        Onde Estamos
+                        <i data-lucide="arrow-down" class="w-3 h-3 group-hover:translate-y-1 transition-transform"></i>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOBRA 05: LOCALIZAÇÃO -->
+    <section class="relative w-full min-h-[90vh] bg-slate-50 flex items-center z-20 py-32 px-6 md:px-12 lg:px-[10%]"
+        id="localizacao">
+        <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+
+            <!-- Lado Esquerdo: Info -->
+            <div class="w-full lg:w-1/3 flex flex-col justify-center">
+                <div class="js-reveal-up mb-8">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mb-4 block">Onde
+                        Estamos</span>
+                    <h2
+                        class="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
+                        Sua próxima experiência<br>começa aqui.
+                    </h2>
+                </div>
+
+                <div class="js-reveal-up bg-white border border-slate-200 p-8 rounded-sm mb-8 shadow-sm">
+                    <div class="flex items-start gap-4 mb-2">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-teal-600 shrink-0 mt-1"></i>
+                        <address class="not-italic text-sm text-slate-600 font-light leading-relaxed">
+                            <strong class="font-medium text-slate-900 block mb-1">Perfect Dente</strong>
+                            Av. Jornalista Moacir Padilha, 124<br>
+                            Jardim Primavera, Duque de Caxias - RJ<br>
+                            CEP: 25215-280
+                        </address>
+                    </div>
+                </div>
+
+                <div class="js-reveal-up">
+                    <a href="https://maps.google.com/?q=Av.+Jornalista+Moacir+Padilha,+124+-+Jardim+Primavera,+Duque+de+Caxias+-+RJ"
+                        target="_blank" rel="noopener noreferrer"
+                        class="premium-btn primary inline-flex group relative overflow-hidden bg-slate-900 text-white px-8 py-4.5 rounded text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-500 items-center justify-center gap-3 shadow-[0_10px_30px_rgba(31,31,31,0.15)] hover:shadow-[0_10px_30px_rgba(27,58,107,0.25)] hover:-translate-y-0.5">
+                        <span class="relative z-10 flex items-center gap-3">
+                            Como Chegar
+                            <i data-lucide="navigation"
+                                class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Lado Direito: Mapa Embed -->
+            <div
+                class="w-full lg:w-2/3 js-reveal-up h-[400px] lg:h-[600px] bg-slate-200 rounded-sm overflow-hidden shadow-2xl shadow-slate-900/10 relative">
+                <!-- Filtro grayscale para integrar melhor o mapa ao visual clean premium -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.016335967067!2d-43.3038670238805!3d-22.651876579435422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x99723bd37d1d23%3A0xc0fb18a1a310c144!2sAv.%20Jornalista%20Moacir%20Padilha%2C%20124%20-%20Jardim%20Primavera%2C%20Duque%20de%20Caxias%20-%20RJ%2C%2025215-280!5e0!3m2!1spt-BR!2sbr!4v1716912345678!5m2!1spt-BR!2sbr"
+                    width="100%" height="100%" style="border:0; filter: grayscale(100%) contrast(1.1) brightness(1.1);"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    class="absolute inset-0 w-full h-full object-cover"></iframe>
+                <!-- Efeito sutil para manter o tom Teal -->
+                <div class="absolute inset-0 mix-blend-overlay bg-teal-800/10 pointer-events-none"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DOBRA 06: AMBIENTE PERFECT DENTE -->
+    <section class="relative w-full min-h-screen bg-white z-20 py-32 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="ambiente-clinica">
+        <div class="max-w-7xl w-full mx-auto">
+            
+            <!-- Cabeçalho Editorial -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-8">
+                <div class="js-reveal-up">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mb-4 block">O Ambiente</span>
+                    <h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
+                        Um espaço pensado<br>para o seu cuidado.
+                    </h2>
+                </div>
+                <div class="js-reveal-up text-slate-500 text-sm font-light max-w-md">
+                    Tecnologia, conforto e sofisticação arquitetônica integrados para proporcionar uma experiência odontológica única e acolhedora.
+                </div>
+            </div>
+
+            <!-- Galeria Editorial (Grid) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 group/gallery">
+                
+                <!-- Coluna Esquerda: Fotos Secundárias -->
+                <div class="lg:col-span-5 flex flex-col justify-center gap-16">
+                    <!-- Foto Secundária 1 -->
+                    <div class="js-reveal-up relative aspect-[3/4] overflow-hidden rounded-sm cursor-default transition-opacity duration-500 group-hover/gallery:opacity-40 hover:!opacity-100 group/img">
+                        <img src="../assets/WhatsApp Image 2026-08-17 at 19.06.24 (1).jpeg" alt="Recepção da clínica Perfect Dente" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105" style="transform-origin: center;">
+                        <div class="absolute inset-0 bg-slate-900/10 group-hover/img:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <span class="text-[9px] font-bold tracking-[0.2em] uppercase">01 / Recepção</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Foto Secundária 2 (Apoio, menor) -->
+                    <div class="js-reveal-up relative aspect-[4/3] w-4/5 self-end overflow-hidden rounded-sm cursor-default hidden lg:block transition-opacity duration-500 group-hover/gallery:opacity-40 hover:!opacity-100 group/img">
+                        <img src="../assets/WhatsApp Image 2026-08-17 at 19.06.24.jpeg" alt="Detalhes do conforto" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105" style="transform-origin: center;">
+                        <div class="absolute inset-0 bg-slate-900/10 group-hover/img:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <span class="text-[9px] font-bold tracking-[0.2em] uppercase">02 / Conforto</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Foto Principal Gigante -->
+                <div class="lg:col-span-7 flex flex-col gap-8 lg:-mt-20">
+                    <!-- Foto Principal -->
+                    <div class="js-reveal-up relative w-full aspect-[3/4] overflow-hidden rounded-sm cursor-default shadow-2xl shadow-slate-900/5 transition-opacity duration-500 group-hover/gallery:opacity-40 hover:!opacity-100 group/img">
+                        <img src="../assets/WhatsApp Image 2026-08-17 at 17.34.49 (3) - Editado.jpg" alt="Sala de atendimento clínico com tecnologia" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-[1.03]" style="transform-origin: center;">
+                        <div class="absolute inset-0 bg-slate-900/5 group-hover/img:bg-transparent transition-colors duration-700"></div>
+                        <div class="absolute bottom-8 left-8 text-white z-10">
+                            <span class="text-[10px] font-bold tracking-[0.2em] uppercase drop-shadow-md">03 / Tecnologia & Precisão</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Foto Secundária 3 (Overlap elegante) -->
+                    <div class="js-reveal-up relative aspect-[4/3] w-full lg:w-3/4 overflow-hidden rounded-sm cursor-default z-10 lg:-ml-12 lg:-mt-32 shadow-xl shadow-slate-900/10 transition-opacity duration-500 group-hover/gallery:opacity-40 hover:!opacity-100 group/img">
+                        <img src="../assets/WhatsApp Image 2026-08-17 at 19.08.44.jpeg" alt="Detalhes do ambiente" loading="lazy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105" style="transform-origin: center;">
+                        <div class="absolute inset-0 bg-slate-900/10 group-hover/img:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute bottom-6 left-6 text-white z-10">
+                            <span class="text-[9px] font-bold tracking-[0.2em] uppercase">04 / Experiência</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- DOBRA 07: FOOTER / ENCERRAMENTO -->
+    <footer class="relative w-full bg-slate-900 text-slate-400 z-30 pt-32 pb-8 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="contato">
+        
+        <!-- CTA FINAL -->
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center mb-32 border-b border-slate-800 pb-32">
+            <h2 class="js-reveal-up font-display text-4xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.1] mb-12 max-w-4xl">
+                Seu sorriso merece<br>uma experiência à altura.
+            </h2>
+            <a href="https://wa.me/5521999521011" target="_blank" rel="noopener noreferrer"
+                class="js-reveal-up premium-btn primary inline-flex group relative overflow-hidden bg-white text-slate-900 px-10 py-5 rounded text-[11px] font-bold uppercase tracking-[0.2em] transition-all duration-500 items-center justify-center gap-3 shadow-[0_20px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_40px_rgba(255,255,255,0.2)] hover:-translate-y-1">
+                <span class="relative z-10 flex items-center gap-3">
+                    Agendar Avaliação
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </span>
+                <div class="absolute inset-0 bg-slate-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
+        </div>
+
+        <!-- CONTEÚDO PRINCIPAL DO FOOTER -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
+            
+            <!-- Coluna 1: Marca (lg:col-span-4) -->
+            <div class="lg:col-span-4 flex flex-col js-reveal-up">
+                <!-- Logo Clara -->
+                <div class="flex items-center gap-4 cursor-pointer group mb-6" onclick="document.getElementById('home').scrollIntoView({behavior: 'smooth'})">
+                    <div class="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center group-hover:border-teal-400 transition-colors duration-500">
+                        <div class="w-2.5 h-2.5 rounded-full bg-teal-500 group-hover:bg-teal-400 transition-colors duration-500"></div>
+                    </div>
+                    <div class="text-base font-display font-semibold tracking-[0.15em] uppercase text-white transition-colors duration-500">
+                        Perfect Dente
+                    </div>
+                </div>
+                <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-500 mb-6 block">Odontologia & Harmonização</div>
+                <p class="text-sm font-light leading-relaxed max-w-sm text-slate-400">
+                    Precisão clínica, estética natural e cuidado personalizado para transformar sua experiência com odontologia.
+                </p>
+            </div>
+
+            <!-- Coluna 2: Navegação (lg:col-span-2) -->
+            <div class="lg:col-span-2 flex flex-col js-reveal-up">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-8">Navegação</h3>
+                <nav class="flex flex-col gap-4 text-sm font-light">
+                    <a href="#home" class="hover:text-teal-400 transition-colors duration-300 w-fit">Início</a>
+                    <a href="#sobre" class="hover:text-teal-400 transition-colors duration-300 w-fit">A Clínica</a>
+                    <a href="#resultados" class="hover:text-teal-400 transition-colors duration-300 w-fit">Resultados</a>
+                    <a href="#procedimentos" class="hover:text-teal-400 transition-colors duration-300 w-fit">Procedimentos</a>
+                    <a href="#o-doutor" class="hover:text-teal-400 transition-colors duration-300 w-fit">O Doutor</a>
+                    <a href="#ambiente-clinica" class="hover:text-teal-400 transition-colors duration-300 w-fit">Ambiente</a>
+                    <a href="#localizacao" class="hover:text-teal-400 transition-colors duration-300 w-fit">Localização</a>
+                </nav>
+            </div>
+
+            <!-- Coluna 3: Contato & Endereço (lg:col-span-3) -->
+            <div class="lg:col-span-3 flex flex-col js-reveal-up">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-8">Contato</h3>
+                
+                <div class="mb-8">
+                    <span class="block text-xs text-slate-500 mb-2">WhatsApp</span>
+                    <a href="https://wa.me/5521999521011" target="_blank" rel="noopener noreferrer" class="text-sm font-light hover:text-teal-400 transition-colors duration-300 flex items-center gap-2 w-fit group">
+                        +55 21 99952-1011
+                        <i data-lucide="arrow-up-right" class="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all"></i>
+                    </a>
+                </div>
+
+                <div>
+                    <span class="block text-xs text-slate-500 mb-2">Endereço</span>
+                    <address class="text-sm font-light not-italic leading-relaxed mb-4">
+                        Av. Jornalista Moacir Padilha, 124<br>
+                        Jardim Primavera<br>
+                        Duque de Caxias — RJ<br>
+                        25215-280
+                    </address>
+                    <a href="https://maps.google.com/?q=Av.+Jornalista+Moacir+Padilha,+124+-+Jardim+Primavera,+Duque+de+Caxias+-+RJ" target="_blank" rel="noopener noreferrer" class="text-[10px] font-bold uppercase tracking-[0.1em] text-teal-500 hover:text-teal-400 transition-colors flex items-center gap-1 group w-fit">
+                        Como Chegar
+                        <i data-lucide="chevron-right" class="w-3 h-3 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coluna 4: Horários & Sociais (lg:col-span-3) -->
+            <div class="lg:col-span-3 flex flex-col js-reveal-up">
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-8">Horário</h3>
+                
+                <div class="flex flex-col gap-6 mb-12">
+                    <div>
+                        <span class="block text-[10px] font-bold tracking-[0.1em] text-slate-500 mb-1">TER — SEX</span>
+                        <span class="text-white font-light text-base">09:30 — 18:30</span>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold tracking-[0.1em] text-slate-500 mb-1">SEG / SÁB / DOM</span>
+                        <span class="text-slate-600 font-light text-sm">Fechado</span>
+                    </div>
+                </div>
+
+                <h3 class="text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6">Acompanhe</h3>
+                <a href="https://instagram.com/perfectdente" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-sm font-light hover:text-teal-400 transition-colors group w-fit">
+                    <div class="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center group-hover:border-teal-500 transition-colors">
+                        <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+                    </div>
+                    @perfectdente
+                </a>
+            </div>
+
+        </div>
+
+        <!-- BASE: Copyright & Legal -->
+        <div class="max-w-7xl mx-auto border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 js-reveal-up">
+            <p class="text-xs font-light text-slate-600">
+                &copy; 2026 Perfect Dente. Todos os direitos reservados.
+            </p>
+            <div class="flex items-center gap-6 text-xs font-light text-slate-600">
+                <a href="#" class="hover:text-slate-400 transition-colors">Política de Privacidade</a>
+                <a href="#" class="hover:text-slate-400 transition-colors">Termos de Uso</a>
+            </div>
+        </div>
+
+    </footer>
+    <!-- Scripts -->
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/5521999521011" target="_blank" rel="noopener noreferrer"
+        aria-label="Falar com a Perfect Dente pelo WhatsApp"
+        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] flex items-center gap-3 group focus:outline-none focus:ring-4 focus:ring-emerald-500/50 rounded-full">
+        <!-- Tooltip -->
+        <span
+            class="hidden md:block opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 bg-white border border-slate-100 text-slate-700 text-xs font-semibold py-2.5 px-4 rounded shadow-[0_10px_20px_rgba(0,0,0,0.05)] pointer-events-none">
+            Fale conosco pelo WhatsApp
+        </span>
+        <!-- Botão -->
+        <div
+            class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)]">
+            <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+            </svg>
+        </div>
+    </a>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Smooth Scroll: Lenis -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <!-- GSAP Core & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- SplitType for Typography Animation -->
+    <script src="https://unpkg.com/split-type"></script>
+
+    <!-- Custom Scripts -->
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

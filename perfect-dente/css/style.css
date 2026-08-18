@@ -1,0 +1,122 @@
+/* ==========================================================================
+   PERFECT DENTE - PREMIUM HERO STYLES
+   ========================================================================== */
+
+/* 1. LENIS SMOOTH SCROLL BOILERPLATE */
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* 2. CUSTOM UTILITIES & TYPOGRAPHY */
+.font-display {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 3. SPLIT TYPE ANIMATION PREP */
+.word {
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+    transform-style: preserve-3d;
+}
+
+.char {
+    display: inline-block;
+    will-change: transform, opacity;
+}
+
+/* 4. PREMIUM BUTTON GLOW & INTERACTION */
+.premium-btn {
+    will-change: transform, box-shadow;
+}
+
+.premium-btn.primary::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(45deg, #1b3a6b, #b98b2a, #cca078);
+    z-index: -1;
+    filter: blur(12px);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: inherit;
+}
+
+.premium-btn.primary:hover::before {
+    opacity: 0.7;
+}
+
+/* 5. IMAGE PARALLAX MASKING */
+.js-parallax-container {
+    mask-image: linear-gradient(to right, transparent 0%, black 35%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%, black 100%);
+    will-change: transform;
+}
+
+.js-image {
+    will-change: transform, opacity;
+    transform-origin: center center;
+}
+
+@media (max-width: 1023px) {
+    .js-parallax-container {
+        mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
+        height: 60vh;
+        top: 0;
+    }
+    
+    .js-parallax-container .bg-gradient-to-r {
+        display: none;
+    }
+}
+
+/* 6. HARDWARE ACCELERATION FOR PERFORMANCE */
+.js-fade-up,
+.js-floating-info,
+.js-scroll-indicator,
+.js-reveal-up {
+    will-change: transform, opacity;
+}
+
+/* 7. CUSTOM KEYFRAMES */
+@keyframes scrollLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+}
+
+/* 8. PROCEDURES HOVER LOGIC */
+/* When hovering the list container, fade all items */
+.js-procedures-list:hover .js-proc-item {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+/* Ensure the currently hovered item remains fully opaque and in full color */
+.js-procedures-list .js-proc-item:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    z-index: 10;
+}
+
+/* 9. MAPA CSS FIX */
+/* Remove pointer events from the overlay so user can interact with the map */
+#localizacao iframe + div {
+    pointer-events: none;
+}
