@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    PERFECT DENTE - PREMIUM HERO STYLES
    ========================================================================== */
 
@@ -76,10 +76,12 @@ html.lenis {
 
 @media (max-width: 1023px) {
     .js-parallax-container {
-        mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
-        height: 60vh;
+        mask-image: none;
+        -webkit-mask-image: none;
+        height: 100vh;
+        height: 100dvh;
         top: 0;
+        width: 100%;
     }
     
     .js-parallax-container .bg-gradient-to-r {
@@ -102,17 +104,19 @@ html.lenis {
 }
 
 /* 8. PROCEDURES HOVER LOGIC */
-/* When hovering the list container, fade all items */
-.js-procedures-list:hover .js-proc-item {
-    opacity: 0.3;
-    filter: grayscale(100%);
-}
+/* When hovering the list container on fine-pointer devices (desktop), fade other items */
+@media (hover: hover) and (pointer: fine) {
+    .js-procedures-list:hover .js-proc-item {
+        opacity: 0.3;
+        filter: grayscale(100%);
+    }
 
-/* Ensure the currently hovered item remains fully opaque and in full color */
-.js-procedures-list .js-proc-item:hover {
-    opacity: 1;
-    filter: grayscale(0%);
-    z-index: 10;
+    /* Ensure the currently hovered item remains fully opaque and in full color */
+    .js-procedures-list .js-proc-item:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        z-index: 10;
+    }
 }
 
 /* 9. MAPA CSS FIX */
@@ -125,7 +129,7 @@ html.lenis {
    MOBILE-FIRST FINE TUNING (375px - 480px)
    ========================================================================== */
 
-/* Preven��o Rigorosa de Overflow Horizontal */
+/* Prevenção Rigorosa de Overflow Horizontal */
 html, body {
     overflow-x: hidden;
     width: 100%;
@@ -134,21 +138,16 @@ html, body {
 @media (max-width: 480px) {
     /* Ajustes finos para tipografia muito grande em telas ultra pequenas */
     .js-headline {
-        font-size: 2.25rem !important; /* text-4xl */
-        line-height: 1.1;
+        font-size: 1.85rem !important;
+        line-height: 1.15;
     }
     
     .text-7xl, .text-8xl {
-        font-size: 4rem !important;
+        font-size: 3.5rem !important;
     }
     
-    /* Garantia de �rea de toque de 44px (Padr�o Apple) */
+    /* Garantia de área de toque de 44px+ (Padrão Apple) */
     .premium-btn, button, .mobile-link {
-        min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        min-height: 44px;
     }
 }
-
-

@@ -72,41 +72,50 @@
         <!-- Fixed positioning to serve as the background that transforms over scroll -->
         <div class="fixed top-0 right-0 w-full lg:w-[55%] h-screen overflow-hidden z-0 js-parallax-container opacity-0">
             <div class="absolute inset-0 bg-slate-100 js-parallax-image-wrapper transform scale-110">
-                <!-- Using the provided WhatsApp image. object-position adjusted for typical facial alignment in right-aligned compositions -->
-                <img src="./assets/img/WhatsApp_Image_2026-08-13_at_15.12.07.jpeg_202608171751.jpeg"
-                    alt="Perfect Dente - Tratamento Premium" class="w-full h-full object-cover js-image opacity-0 object-[center_20%] lg:object-[70%_30%]">
+                <!-- Using picture to serve portrait mobile image on mobile screens and landscape on desktop -->
+                <picture class="w-full h-full block">
+                    <source media="(max-width: 1023px)" srcset="./assets/img/WhatsApp_Image_2026-08-13_at_15.12.07.jpeg_202608281655.jpeg">
+                    <img src="./assets/img/WhatsApp_Image_2026-08-13_at_15.12.07.jpeg_202608171751.jpeg"
+                        alt="Perfect Dente - Odontologia e Harmonização" class="w-full h-full object-cover js-image opacity-0 object-center lg:object-[70%_30%]">
+                </picture>
+
+                <!-- Mobile Overlay: Provides soft contrast so headline & CTAs remain 100% sharp & legible on mobile -->
+                <div class="absolute inset-0 bg-slate-50/75 lg:bg-transparent pointer-events-none"></div>
 
                 <!-- Atmosphere color tint / Depth layers -->
                 <div class="absolute inset-0 mix-blend-multiply bg-teal-900/5"></div>
             </div>
             <!-- Vignette / Overlays to blend smoothly with background -->
             <div
-                class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/50 to-transparent w-full lg:w-1/2 left-0 z-10 pointer-events-none">
+                class="absolute inset-0 bg-gradient-to-r from-slate-50 via-slate-50/50 to-transparent w-full lg:w-1/2 left-0 z-10 pointer-events-none hidden lg:block">
             </div>
             <div
-                class="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent h-1/4 bottom-0 z-10 pointer-events-none mt-auto">
+                class="absolute inset-0 bg-gradient-to-t from-slate-50 via-slate-50/80 to-transparent h-1/3 bottom-0 z-10 pointer-events-none mt-auto block">
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-slate-50/90 via-transparent to-transparent h-1/4 top-0 z-10 pointer-events-none block lg:hidden">
             </div>
         </div>
 
         <!-- LAYER 3: HERO CONTENT SECTION -->
         <section
-            class="fixed top-0 left-0 w-full h-screen flex flex-col justify-center px-6 md:px-12 lg:px-[10%] pt-24 pb-12 pointer-events-none z-10">
+            class="fixed top-0 left-0 w-full h-[100dvh] lg:h-screen flex flex-col justify-center px-6 md:px-12 lg:px-[10%] pt-20 pb-8 lg:pt-24 lg:pb-12 pointer-events-none z-10">
 
             <div class="max-w-7xl w-full mx-auto flex flex-col justify-center relative h-full">
 
                 <!-- HEADER / MENU -->
                 <header
-                    class="absolute -top-24 left-0 w-full flex items-center justify-between pt-8 pb-6 js-header-fade pointer-events-auto z-50">
+                    class="absolute -top-20 lg:-top-24 left-0 w-full flex items-center justify-between pt-6 lg:pt-8 pb-4 lg:pb-6 js-header-fade pointer-events-auto z-50">
                     <!-- Logo / Brand -->
-                    <div class="flex items-center gap-4 cursor-pointer group">
+                    <div class="flex items-center gap-3 lg:gap-4 cursor-pointer group">
                         <div
-                            class="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center group-hover:border-teal-400 transition-colors duration-500">
+                            class="w-9 h-9 lg:w-10 lg:h-10 rounded-full border border-slate-300 flex items-center justify-center group-hover:border-teal-400 transition-colors duration-500">
                             <div
                                 class="w-2.5 h-2.5 rounded-full bg-teal-600 group-hover:bg-teal-500 transition-colors duration-500">
                             </div>
                         </div>
                         <div
-                            class="text-base font-display font-semibold tracking-[0.15em] uppercase text-slate-900 group-hover:text-teal-700 transition-colors duration-500">
+                            class="text-sm lg:text-base font-display font-semibold tracking-[0.15em] uppercase text-slate-900 group-hover:text-teal-700 transition-colors duration-500">
                             Perfect Dente</div>
                     </div>
 
@@ -125,7 +134,7 @@
                     </nav>
 
                     <button id="mobile-menu-btn"
-                        class="lg:hidden text-slate-900 p-2 border border-slate-200 rounded-full hover:bg-slate-100 transition-colors">
+                        class="lg:hidden text-slate-900 p-2.5 border border-slate-200 rounded-full hover:bg-slate-100 transition-colors">
                         <i data-lucide="menu" class="w-5 h-5"></i>
                     </button>
                 </header>
@@ -146,39 +155,39 @@
                     </nav>
                 </div>
 
-                <div class="w-full lg:w-3/5 flex flex-col items-start mt-8 lg:mt-0 pointer-events-auto">
+                <div class="w-full lg:w-3/5 flex flex-col items-start mt-4 lg:mt-0 pointer-events-auto">
 
                     <!-- EYEBROW -->
-                    <div class="js-fade-up flex items-center gap-4 mb-4">
-                        <span class="w-8 h-[1px] bg-teal-600 block"></span>
+                    <div class="js-fade-up flex items-center gap-3 lg:gap-4 mb-3 lg:mb-4">
+                        <span class="w-6 lg:w-8 h-[1px] bg-teal-600 block"></span>
                         <span
-                            class="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-teal-700">Odontologia
+                            class="text-[9px] sm:text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] text-teal-700">Odontologia
                             & Harmonização</span>
                     </div>
 
                     <!-- HEADLINE -->
                     <h1
-                        class="js-headline font-display text-[2.5rem] leading-[1.1] md:text-5xl lg:text-[4rem] lg:leading-[1.1] font-semibold tracking-tighter text-slate-900 mb-5 max-w-3xl">
+                        class="js-headline font-display text-[2rem] sm:text-[2.5rem] leading-[1.12] md:text-5xl lg:text-[4rem] lg:leading-[1.1] font-semibold tracking-tight text-slate-900 mb-4 lg:mb-5 max-w-3xl">
                         Sua <span class="text-teal-600">melhor versão</span><br>
                         começa com um sorriso.
                     </h1>
 
                     <!-- SUBHEADLINE -->
                     <p
-                        class="js-fade-up text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-[420px] mb-8">
+                        class="js-fade-up text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-[420px] mb-6 lg:mb-8">
                         A convergência entre precisão clínica, estética natural e um cuidado pensado exclusivamente para
                         você.
                     </p>
 
                     <!-- CTAs (Hierarquia Visual Corrigida) -->
-                    <div class="js-fade-up flex flex-col sm:flex-row items-center gap-6 w-full sm:w-auto">
+                    <div class="js-fade-up flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6 w-full sm:w-auto">
                         <!-- CTA Principal Dominante -->
-                        <a href="#"
-                            class="premium-btn primary w-full sm:w-auto group relative overflow-hidden bg-slate-900 text-white px-10 py-5 rounded-sm text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-4 shadow-[0_15px_40px_rgba(31,31,31,0.2)] hover:shadow-[0_15px_40px_rgba(27,58,107,0.3)] hover:-translate-y-1 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                        <a href="https://wa.me/5521999521011" target="_blank" rel="noopener noreferrer"
+                            class="premium-btn primary w-full sm:w-auto group relative overflow-hidden bg-slate-900 text-white px-8 lg:px-10 py-4 lg:py-5 rounded-sm text-[11px] lg:text-[12px] font-bold uppercase tracking-[0.2em] transition-all duration-500 flex items-center justify-center gap-3 lg:gap-4 shadow-[0_15px_40px_rgba(31,31,31,0.2)] hover:shadow-[0_15px_40px_rgba(27,58,107,0.3)] hover:-translate-y-1 focus:ring-2 focus:ring-teal-500 focus:outline-none">
                             <span class="relative z-10 flex items-center gap-3">
                                 Agendar Avaliação
                                 <i data-lucide="arrow-right"
-                                    class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-500 ease-out"></i>
+                                    class="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-2 transition-transform duration-500 ease-out"></i>
                             </span>
                             <div
                                 class="absolute inset-0 bg-gradient-to-r from-teal-600 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -187,7 +196,7 @@
 
                         <!-- CTA Secundário Minimalista -->
                         <a href="#sobre"
-                            class="w-full sm:w-auto group px-8 py-5 text-slate-500 hover:text-slate-900 rounded-sm text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 flex items-center justify-center gap-2 focus:ring-2 focus:ring-slate-300 focus:outline-none">
+                            class="w-full sm:w-auto group px-6 lg:px-8 py-3.5 lg:py-5 text-slate-600 hover:text-slate-900 rounded-sm text-[10px] lg:text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 flex items-center justify-center gap-2 focus:ring-2 focus:ring-slate-300 focus:outline-none">
                             Conhecer a Clínica
                         </a>
                     </div>
@@ -199,7 +208,7 @@
         </section>
 
         <!-- SCROLL INDICATOR -->
-        <div class="fixed bottom-12 left-1/2 -translate-x-1/2 z-20 text-center js-scroll-indicator pointer-events-none">
+        <div class="hidden md:block fixed bottom-12 left-1/2 -translate-x-1/2 z-20 text-center js-scroll-indicator pointer-events-none">
             <span class="block text-[8px] font-mono tracking-[0.4em] uppercase text-slate-400 mb-4 opacity-70">Descubra
                 a Experiência</span>
             <div class="w-[1px] h-16 bg-slate-200 mx-auto relative overflow-hidden">
@@ -213,7 +222,7 @@
 
     <!-- DOBRA 02: QUEM SOMOS -->
     <section
-        class="relative w-full min-h-screen bg-slate-50 flex items-center z-20 py-32 px-6 md:px-12 lg:px-[10%] overflow-hidden"
+        class="relative w-full min-h-screen bg-slate-50 flex items-center z-20 py-20 md:py-32 px-6 md:px-12 lg:px-[10%] overflow-hidden"
         id="sobre">
         
         <!-- Premium Background Image -->
@@ -270,11 +279,11 @@
     </section>
 
     <!-- DOBRA 03: ANTES E DEPOIS -->
-    <section class="relative w-full min-h-screen flex items-center bg-white z-20 py-32 px-6 md:px-12 lg:px-[10%]"
+    <section class="relative w-full min-h-screen flex items-center bg-white z-20 py-20 md:py-32 px-6 md:px-12 lg:px-[10%]"
         id="resultados">
         <div class="max-w-7xl w-full mx-auto">
 
-            <div class="text-center mb-20 js-reveal-up">
+            <div class="text-center mb-12 md:mb-20 js-reveal-up">
                 <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mb-4 block">Transformação
                     Visual</span>
                 <h2 class="font-display text-3xl md:text-5xl font-semibold text-slate-900 tracking-tight">Detalhes que
@@ -316,11 +325,11 @@
     </section>
 
     <!-- DOBRA 04: PROCEDIMENTOS -->
-    <section class="relative w-full min-h-screen bg-slate-900 text-white z-20 py-32 px-6 md:px-12 lg:px-[10%]"
+    <section class="relative w-full min-h-screen bg-slate-900 text-white z-20 py-20 md:py-32 px-6 md:px-12 lg:px-[10%]"
         id="procedimentos">
         <div class="max-w-7xl mx-auto">
 
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-8">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 md:mb-20 gap-6 lg:gap-8">
                 <div class="js-reveal-up">
                     <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-400 mb-4 block">Nossas
                         Soluções</span>
@@ -435,12 +444,12 @@
     </section>
 
     <!-- DOBRA 05: DR. ALESSANDRO VIEIRA -->
-    <section class="relative w-full min-h-screen bg-white z-20 pt-32 pb-0 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="o-doutor">
-        <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
+    <section class="relative w-full min-h-screen bg-white z-20 pt-20 md:pt-32 pb-0 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="o-doutor">
+        <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             
             <!-- Coluna Esquerda: Informações e Tipografia (lg:col-span-5) -->
             <div class="lg:col-span-5 flex flex-col justify-center relative z-10">
-                <div class="js-reveal-up mb-12">
+                <div class="js-reveal-up mb-8 md:mb-12">
                     <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mb-4 block">Responsável Técnico</span>
                     <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
                         Dr. Alessandro<br>Vieira
@@ -505,19 +514,19 @@
         </div>
 
         <!-- Tríade e Transição -->
-        <div class="max-w-7xl mx-auto mt-24 lg:mt-32 border-t border-slate-100 pt-16 pb-24 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-8 md:gap-16">
+        <div class="max-w-7xl mx-auto mt-16 lg:mt-32 border-t border-slate-100 pt-12 md:pt-16 pb-16 md:pb-24 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 relative z-10">
+            <div class="grid grid-cols-3 gap-4 sm:gap-8 md:flex md:gap-16 w-full md:w-auto">
                 <div class="js-reveal-up text-center">
-                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-2">01</span>
-                    <span class="text-xs font-semibold tracking-widest text-slate-900 uppercase">Técnica</span>
+                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-1 md:mb-2">01</span>
+                    <span class="text-[11px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-slate-900 uppercase">Técnica</span>
                 </div>
                 <div class="js-reveal-up text-center">
-                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-2">02</span>
-                    <span class="text-xs font-semibold tracking-widest text-slate-900 uppercase">Experiência</span>
+                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-1 md:mb-2">02</span>
+                    <span class="text-[11px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-slate-900 uppercase">Experiência</span>
                 </div>
                 <div class="js-reveal-up text-center">
-                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-2">03</span>
-                    <span class="text-xs font-semibold tracking-widest text-slate-900 uppercase">Cuidado Humano</span>
+                    <span class="block text-[10px] font-bold tracking-[0.2em] text-teal-600 uppercase mb-1 md:mb-2">03</span>
+                    <span class="text-[11px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-slate-900 uppercase">Cuidado Humano</span>
                 </div>
             </div>
 
@@ -535,9 +544,9 @@
     </section>
 
     <!-- DOBRA 05: LOCALIZAÇÃO -->
-    <section class="relative w-full min-h-[90vh] bg-slate-50 flex items-center z-20 py-32 px-6 md:px-12 lg:px-[10%]"
+    <section class="relative w-full min-h-[90vh] bg-slate-50 flex items-center z-20 py-20 md:py-32 px-6 md:px-12 lg:px-[10%]"
         id="localizacao">
-        <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
+        <div class="max-w-7xl w-full mx-auto flex flex-col lg:flex-row gap-12 lg:gap-24">
 
             <!-- Lado Esquerdo: Info -->
             <div class="w-full lg:w-1/3 flex flex-col justify-center">
@@ -595,11 +604,11 @@
     </section>
 
     <!-- DOBRA 06: AMBIENTE PERFECT DENTE -->
-    <section class="relative w-full min-h-screen bg-white z-20 py-32 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="ambiente-clinica">
+    <section class="relative w-full min-h-screen bg-white z-20 py-20 md:py-32 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="ambiente-clinica">
         <div class="max-w-7xl w-full mx-auto">
             
             <!-- Cabeçalho Editorial -->
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-24 gap-8">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 md:mb-24 gap-6 lg:gap-8">
                 <div class="js-reveal-up">
                     <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-teal-700 mb-4 block">O Ambiente</span>
                     <h2 class="font-display text-3xl md:text-5xl lg:text-6xl font-semibold text-slate-900 tracking-tight leading-[1.1]">
@@ -660,11 +669,11 @@
         </div>
     </section>
     <!-- DOBRA 07: FOOTER / ENCERRAMENTO -->
-    <footer class="relative w-full bg-slate-900 text-slate-400 z-30 pt-32 pb-8 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="contato">
+    <footer class="relative w-full bg-slate-900 text-slate-400 z-30 pt-20 md:pt-32 pb-8 px-6 md:px-12 lg:px-[10%] overflow-hidden" id="contato">
         
         <!-- CTA FINAL -->
-        <div class="max-w-7xl mx-auto flex flex-col items-center text-center mb-32 border-b border-slate-800 pb-32">
-            <h2 class="js-reveal-up font-display text-4xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.1] mb-12 max-w-4xl">
+        <div class="max-w-7xl mx-auto flex flex-col items-center text-center mb-16 md:mb-32 border-b border-slate-800 pb-16 md:pb-32">
+            <h2 class="js-reveal-up font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-white tracking-tight leading-[1.1] mb-8 md:mb-12 max-w-4xl">
                 Seu sorriso merece<br>uma experiência à altura.
             </h2>
             <a href="https://wa.me/5521999521011" target="_blank" rel="noopener noreferrer"
@@ -780,7 +789,7 @@
     <!-- WHATSAPP FLOATING BUTTON -->
     <a href="https://wa.me/5521999521011" target="_blank" rel="noopener noreferrer"
         aria-label="Falar com a Perfect Dente pelo WhatsApp"
-        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] flex items-center gap-3 group focus:outline-none focus:ring-4 focus:ring-emerald-500/50 rounded-full">
+        class="fixed bottom-5 right-5 md:bottom-10 md:right-10 z-[100] flex items-center gap-3 group focus:outline-none focus:ring-4 focus:ring-emerald-500/50 rounded-full">
         <!-- Tooltip -->
         <span
             class="hidden md:block opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all duration-300 bg-white border border-slate-100 text-slate-700 text-xs font-semibold py-2.5 px-4 rounded shadow-[0_10px_20px_rgba(0,0,0,0.05)] pointer-events-none">
@@ -788,8 +797,8 @@
         </span>
         <!-- Botão -->
         <div
-            class="w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)]">
-            <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current">
+            class="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)]">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 md:w-7 md:h-7 fill-current">
                 <path
                     d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
             </svg>
