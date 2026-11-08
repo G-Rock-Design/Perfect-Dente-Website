@@ -2,11 +2,74 @@
 <html lang="pt-BR" class="lenis lenis-smooth">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18442752807"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-18442752807');
+    </script>
+    <!-- Google Ads: conversão de clique no WhatsApp -->
+    <script>
+        // Cole aqui o rótulo da conversão gerado no Google Ads (parte após a barra em "AW-18442752807/XXXXXXXX")
+        var WHATSAPP_CONVERSION_LABEL = '';
+
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest && e.target.closest('a[href*="wa.me"]');
+            if (!link || !WHATSAPP_CONVERSION_LABEL) return;
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18442752807/' + WHATSAPP_CONVERSION_LABEL
+            });
+        });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfect Dente - Odontologia e Harmonização Orofacial em Duque de Caxias</title>
     <meta name="description" content="A Perfect Dente, liderada pelo Dr. Alessandro Vieira em Duque de Caxias, oferece odontologia de alto padrão, harmonização orofacial e estética dental com precisão e cuidado humano.">
     <meta name="keywords" content="odontologia, dentista, harmonização orofacial, estética dental, lente de contato dental, Duque de Caxias, Dr. Alessandro Vieira, clínica odontológica, reabilitação oral">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1b3a6b">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="./assets/img/favicon.png">
+
+    <!-- Compartilhamento (WhatsApp, Facebook, Instagram, LinkedIn) -->
+    <!-- Ao publicar, troque "./assets/..." pelo endereço completo, ex.: https://www.seudominio.com.br/assets/img/og-perfect-dente.jpg -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Perfect Dente">
+    <meta property="og:title" content="Perfect Dente - Odontologia e Harmonização Orofacial em Duque de Caxias">
+    <meta property="og:description" content="Odontologia de alto padrão, harmonização orofacial e estética dental com o Dr. Alessandro Vieira, em Duque de Caxias - RJ.">
+    <meta property="og:image" content="./assets/img/og-perfect-dente.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Dados estruturados para o Google (clínica local) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Perfect Dente",
+        "description": "Odontologia e Harmonização Orofacial em Duque de Caxias - RJ.",
+        "telephone": "+55-21-99952-1011",
+        "image": "./assets/img/og-perfect-dente.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Jornalista Moacir Padilha, 124 - Jardim Primavera",
+            "addressLocality": "Duque de Caxias",
+            "addressRegion": "RJ",
+            "postalCode": "25215-280",
+            "addressCountry": "BR"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": -22.6518766, "longitude": -43.3012921 },
+        "employee": { "@type": "Person", "name": "Dr. Alessandro Vieira", "jobTitle": "Cirurgião-Dentista" },
+        "sameAs": ["https://www.instagram.com/perfectdente"]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +119,52 @@
         class="fixed inset-0 pointer-events-none z-0 mix-blend-multiply opacity-[0.04] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC44IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI24pIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=')]">
     </div>
 
+    <!-- HEADER / MENU (fixo no topo, visível em toda a página) -->
+    <header id="site-header"
+        class="fixed top-0 left-0 w-full z-[90] px-6 md:px-12 lg:px-[10%] transition-[background-color,box-shadow,backdrop-filter] duration-500 js-header-fade">
+        <div class="max-w-7xl mx-auto flex items-center justify-between py-4 lg:py-6 transition-[padding] duration-500 js-header-inner">
+            <!-- Logo / Brand -->
+            <a href="#home" class="flex items-center gap-3 lg:gap-4 group" aria-label="Perfect Dente - voltar ao início">
+                <img src="./assets/img/logo-perfect-dente.jpg" alt="Logo Perfect Dente" width="320" height="239" class="h-10 lg:h-12 w-auto object-contain rounded-md">
+                <span
+                    class="text-sm lg:text-base font-display font-semibold tracking-[0.15em] uppercase text-slate-900 group-hover:text-teal-700 transition-colors duration-500">
+                    Perfect Dente</span>
+            </a>
+
+            <!-- Navegação Principal -->
+            <nav aria-label="Navegação principal"
+                class="hidden lg:flex items-center gap-8 xl:gap-10 text-[11px] font-bold tracking-[0.2em] uppercase text-slate-600 js-desktop-nav">
+                <a href="#sobre" class="nav-link hover:text-teal-600 transition-colors duration-300 py-2">A Clínica</a>
+                <a href="#resultados" class="nav-link hover:text-teal-600 transition-colors duration-300 py-2">Resultados</a>
+                <a href="#procedimentos" class="nav-link hover:text-teal-600 transition-colors duration-300 py-2">Especialidades</a>
+                <a href="#o-doutor" class="nav-link hover:text-teal-600 transition-colors duration-300 py-2">O Doutor</a>
+                <a href="#localizacao" class="nav-link text-slate-900 hover:text-teal-600 transition-colors duration-300 py-2">Contato</a>
+            </nav>
+
+            <button id="mobile-menu-btn" type="button" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false"
+                class="lg:hidden text-slate-900 p-2.5 border border-slate-200 rounded-full bg-white/60 hover:bg-slate-100 transition-colors">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" aria-hidden="true"
+        class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-[110] flex flex-col justify-center items-center translate-x-full transition-transform duration-500 ease-in-out lg:hidden">
+        <button id="mobile-menu-close" type="button" aria-label="Fechar menu" class="absolute top-8 right-6 p-2 text-white hover:text-teal-400 transition-colors">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <nav aria-label="Navegação mobile" class="flex flex-col items-center gap-8 text-lg font-display font-semibold tracking-widest uppercase text-white">
+            <a href="#home" class="mobile-link hover:text-teal-400 transition-colors">Início</a>
+            <a href="#sobre" class="mobile-link hover:text-teal-400 transition-colors">A Clínica</a>
+            <a href="#resultados" class="mobile-link hover:text-teal-400 transition-colors">Resultados</a>
+            <a href="#procedimentos" class="mobile-link hover:text-teal-400 transition-colors">Especialidades</a>
+            <a href="#o-doutor" class="mobile-link hover:text-teal-400 transition-colors">O Doutor</a>
+            <a href="#ambiente-clinica" class="mobile-link hover:text-teal-400 transition-colors">Ambiente</a>
+            <a href="#localizacao" class="mobile-link text-teal-500">Contato</a>
+        </nav>
+    </div>
+
     <!-- MAIN SCROLL CONTAINER -->
     <!-- Height 120vh allows for a faster continuous scroll driven animations -->
     <main class="relative w-full h-[120vh]">
@@ -76,7 +185,7 @@
             <div class="absolute inset-0 bg-slate-100 js-parallax-image-wrapper transform scale-110">
                 <!-- Using picture to serve portrait mobile image on mobile screens and landscape on desktop -->
                 <picture class="w-full h-full block">
-                    <img src="./assets/img/hero-fachada.png"
+                    <img src="./assets/img/hero-fachada.jpg" fetchpriority="high" width="640" height="810"
                         alt="Perfect Dente - Odontologia e Harmonização" class="w-full h-full object-cover js-image opacity-0 object-center">
                 </picture>
 
@@ -104,52 +213,6 @@
 
             <div class="max-w-7xl w-full mx-auto flex flex-col justify-center relative h-full">
 
-                <!-- HEADER / MENU -->
-                <header
-                    class="absolute -top-20 lg:-top-24 left-0 w-full flex items-center justify-between pt-6 lg:pt-8 pb-4 lg:pb-6 js-header-fade pointer-events-auto z-50">
-                    <!-- Logo / Brand -->
-                    <div class="flex items-center gap-3 lg:gap-4 cursor-pointer group">
-                        <img src="./assets/img/WhatsApp_Image_2026-08-13_at_15.12.07.jpeg_202608171751.jpeg" alt="Logo Perfect Dente" class="h-10 lg:h-12 w-auto object-contain rounded-md">
-                        <div
-                            class="text-sm lg:text-base font-display font-semibold tracking-[0.15em] uppercase text-slate-900 group-hover:text-teal-700 transition-colors duration-500">
-                            Perfect Dente</div>
-                    </div>
-
-                    <!-- Navegação Principal -->
-                    <nav
-                        class="hidden lg:flex items-center gap-10 text-[11px] font-bold tracking-[0.2em] uppercase text-slate-400">
-                        <a href="#sobre" class="hover:text-teal-600 transition-colors duration-300 py-2">A Clínica</a>
-                        <a href="#resultados"
-                            class="hover:text-teal-600 transition-colors duration-300 py-2">Resultados</a>
-                        <a href="#procedimentos"
-                            class="hover:text-teal-600 transition-colors duration-300 py-2">Especialidades</a>
-                        <a href="#o-doutor"
-                            class="hover:text-teal-600 transition-colors duration-300 py-2">O Doutor</a>
-                        <a href="#localizacao"
-                            class="text-slate-900 hover:text-teal-600 transition-colors duration-300 py-2 relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-teal-600 after:rounded-full">Contato</a>
-                    </nav>
-
-                    <button id="mobile-menu-btn"
-                        class="lg:hidden text-slate-900 p-2.5 border border-slate-200 rounded-full hover:bg-slate-100 transition-colors">
-                        <i data-lucide="menu" class="w-5 h-5"></i>
-                    </button>
-                </header>
-
-                <!-- Mobile Menu Overlay -->
-                <div id="mobile-menu" class="fixed inset-0 bg-slate-900/95 backdrop-blur-xl z-[100] flex flex-col justify-center items-center translate-x-full transition-transform duration-500 ease-in-out lg:hidden">
-                    <button id="mobile-menu-close" class="absolute top-8 right-6 p-2 text-white hover:text-teal-400 transition-colors">
-                        <i data-lucide="x" class="w-8 h-8"></i>
-                    </button>
-                    <nav class="flex flex-col items-center gap-8 text-lg font-display font-semibold tracking-widest uppercase text-white">
-                        <a href="#home" class="mobile-link hover:text-teal-400 transition-colors">Início</a>
-                        <a href="#sobre" class="mobile-link hover:text-teal-400 transition-colors">A Clínica</a>
-                        <a href="#resultados" class="mobile-link hover:text-teal-400 transition-colors">Resultados</a>
-                        <a href="#procedimentos" class="mobile-link hover:text-teal-400 transition-colors">Especialidades</a>
-                        <a href="#o-doutor" class="mobile-link hover:text-teal-400 transition-colors">O Doutor</a>
-                        <a href="#ambiente-clinica" class="mobile-link hover:text-teal-400 transition-colors">Ambiente</a>
-                        <a href="#localizacao" class="mobile-link text-teal-500">Contato</a>
-                    </nav>
-                </div>
 
                 <div class="w-full lg:w-3/5 flex flex-col items-start mt-4 lg:mt-0 pointer-events-auto">
 
@@ -225,7 +288,7 @@
         <!-- Premium Background Image -->
         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none overflow-hidden bg-slate-50">
             <!-- Imagem com maior visibilidade no mobile e mantida no desktop -->
-            <img src="./assets/img/agora_gere_uma_da_metade_do_ro_1.jpg" alt="" class="absolute inset-0 w-full h-[120%] -top-[10%] object-cover js-parallax-bg opacity-80 lg:opacity-50" style="object-position: right center;">
+            <img loading="lazy" src="./assets/img/agora_gere_uma_da_metade_do_ro_1.jpg" alt="" class="absolute inset-0 w-full h-[120%] -top-[10%] object-cover js-parallax-bg opacity-80 lg:opacity-50" style="object-position: right center;">
             <!-- Gradiente horizontal: no desktop protege o texto à esquerda; no mobile suavizado para destacar a foto -->
             <div class="absolute inset-0 bg-gradient-to-r from-slate-50/70 via-slate-50/40 to-transparent lg:from-slate-50 lg:via-slate-50/70 lg:to-slate-50/30"></div>
             <!-- Transição suave do topo e base -->
@@ -292,7 +355,7 @@
                 class="js-reveal-up relative w-full aspect-[4/5] md:aspect-[16/9] lg:aspect-[21/9] bg-slate-100 rounded-sm overflow-hidden shadow-[0_20px_50px_rgba(31,31,31,0.08)] js-ba-container cursor-ew-resize group">
 
                 <!-- Imagem DEPOIS (Fundo completo) -->
-                <img src="./assets/img/WhatsApp Image 2026-08-17 at 17.44.13.jpeg" alt="Resultado Final" class="absolute inset-0 w-full h-full object-cover js-ba-after">
+                <img loading="lazy" src="./assets/img/WhatsApp Image 2026-08-17 at 17.44.13.jpeg" alt="Resultado Final" class="absolute inset-0 w-full h-full object-cover js-ba-after">
 
                 <div
                     class="absolute bottom-6 right-6 px-4 py-2 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest text-slate-900 rounded shadow-sm z-0">
@@ -301,7 +364,7 @@
                 <!-- Imagem ANTES (Foreground com Clip-Path dinamico via js) -->
                 <div class="absolute inset-0 w-full h-full js-ba-before z-10 border-r border-white/50"
                     style="clip-path: inset(0 50% 0 0);">
-                    <img src="./assets/img/WhatsApp Image 2026-08-17 at 17.44.13 (1).jpeg" alt="Antes do Procedimento" class="absolute inset-0 w-full h-full object-cover">
+                    <img loading="lazy" src="./assets/img/WhatsApp Image 2026-08-17 at 17.44.13 (1).jpeg" alt="Antes do Procedimento" class="absolute inset-0 w-full h-full object-cover">
 
                     <div
                         class="absolute bottom-6 left-6 px-4 py-2 bg-white/90 backdrop-blur-md text-[10px] font-bold tracking-widest text-slate-900 rounded shadow-sm">
@@ -496,7 +559,7 @@
                     
                     <!-- Wrapper da Imagem -->
                     <div class="relative w-full h-[450px] md:h-auto md:aspect-square lg:aspect-[4/5] overflow-hidden">
-                        <img src="./assets/img/gere_com_o_fundo_branco_3.jpg" alt="Dr. Alessandro Vieira, responsável técnico da Perfect Dente" class="absolute inset-0 w-full h-[130%] -top-[15%] object-cover transition-transform duration-1000 group-hover:scale-105 js-parallax-bg" style="transform-origin: center;">
+                        <img loading="lazy" src="./assets/img/gere_com_o_fundo_branco_3.jpg" alt="Dr. Alessandro Vieira, responsável técnico da Perfect Dente" class="absolute inset-0 w-full h-[130%] -top-[15%] object-cover transition-transform duration-1000 group-hover:scale-105 js-parallax-bg" style="transform-origin: center;">
                         <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
                     </div>
                     
@@ -641,7 +704,7 @@
                 <div class="js-reveal-up">
                     <a href="https://maps.google.com/?q=Av.+Jornalista+Moacir+Padilha,+124+-+Jardim+Primavera,+Duque+de+Caxias+-+RJ"
                         target="_blank" rel="noopener noreferrer"
-                        class="premium-btn primary inline-flex group relative overflow-hidden bg-slate-900 text-white px-8 py-4.5 rounded text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-500 items-center justify-center gap-3 shadow-[0_10px_30px_rgba(31,31,31,0.15)] hover:shadow-[0_10px_30px_rgba(27,58,107,0.25)] hover:-translate-y-0.5">
+                        class="premium-btn primary inline-flex group relative overflow-hidden bg-slate-900 text-white px-8 py-[18px] rounded text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-500 items-center justify-center gap-3 shadow-[0_10px_30px_rgba(31,31,31,0.15)] hover:shadow-[0_10px_30px_rgba(27,58,107,0.25)] hover:-translate-y-0.5">
                         <span class="relative z-10 flex items-center gap-3">
                             Como Chegar
                             <i data-lucide="navigation"

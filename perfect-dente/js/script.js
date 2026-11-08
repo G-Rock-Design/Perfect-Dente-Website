@@ -194,30 +194,90 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { passive: true });
     }
 
-    // 6. MOBILE MENU LOGIC
+    // 6. MENU: NAVEGAÇÃO, HEADER FIXO E MENU MOBILE
+    const header = document.getElementById('site-header');
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenuClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const HEADER_OFFSET = () => (header ? header.offsetHeight : 0);
 
-    if (mobileMenuBtn && mobileMenuClose && mobileMenu) {
-        const toggleMenu = () => {
-            mobileMenu.classList.toggle('translate-x-full');
-            if (mobileMenu.classList.contains('translate-x-full')) {
-                lenis.start(); // Re-enable scroll
-            } else {
-                lenis.stop(); // Disable scroll when menu is open
-            }
-        };
+    const isMenuOpen = () => mobileMenu && !mobileMenu.classList.contains('translate-x-full');
 
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-        mobileMenuClose.addEventListener('click', toggleMenu);
+    const setMenuOpen = (open) => {
+        if (!mobileMenu) return;
+        mobileMenu.classList.toggle('translate-x-full', !open);
+        mobileMenu.setAttribute('aria-hidden', String(!open));
+        if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
+        open ? lenis.stop() : lenis.start();
+    };
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                toggleMenu();
-                // Let Lenis handle the smooth scroll
+    if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => setMenuOpen(!isMenuOpen()));
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', () => setMenuOpen(false));
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen()) setMenuOpen(false);
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024 && isMenuOpen()) setMenuOpen(false);
+    });
+
+    // Rolagem suave para todos os links internos (menu, rodapé, CTAs)
+    const scrollToHash = (hash) => {
+        if (hash === '#home' || hash === '#top') {
+            lenis.scrollTo(0, { duration: 1.6 });
+            return true;
+        }
+        const target = document.querySelector(hash);
+        if (!target) return false;
+        lenis.scrollTo(target, { offset: -HEADER_OFFSET(), duration: 1.6 });
+        return true;
+    };
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        const hash = link.getAttribute('href');
+        if (hash === '#' || hash.length < 2) return;
+
+        e.preventDefault();
+        if (isMenuOpen()) setMenuOpen(false); // reativa o Lenis antes de rolar
+        if (scrollToHash(hash)) history.pushState(null, '', hash);
+    });
+
+    // Abrir a página já com âncora na URL (ex.: site.com/#localizacao)
+    if (location.hash && location.hash.length > 1) {
+        window.addEventListener('load', () => setTimeout(() => scrollToHash(location.hash), 300));
+    }
+
+    // Fundo do header ao rolar
+    const updateHeader = () => {
+        if (header) header.classList.toggle('is-scrolled', window.scrollY > 40);
+    };
+    updateHeader();
+    lenis.on('scroll', updateHeader);
+    window.addEventListener('scroll', updateHeader, { passive: true });
+
+    // Destaque do item do menu da seção visível
+    const navLinks = document.querySelectorAll('#site-header .nav-link, #mobile-menu .mobile-link');
+    const sectionIds = [...new Set([...navLinks].map(l => l.getAttribute('href')))]
+        .filter(h => h && h.length > 1 && h !== '#home');
+    const sections = sectionIds.map(h => document.querySelector(h)).filter(Boolean);
+
+    const setActive = (id) => {
+        navLinks.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === `#${id}`));
+    };
+
+    if ('IntersectionObserver' in window && sections.length) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActive(entry.target.id);
             });
-        });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        sections.forEach(s => observer.observe(s));
+
+        // Sem destaque enquanto estiver na primeira dobra
+        window.addEventListener('scroll', () => {
+            if (sections[0] && window.scrollY < sections[0].offsetTop - window.innerHeight * 0.5) setActive(null);
+        }, { passive: true });
     }
 });
